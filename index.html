@@ -38,12 +38,12 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 }
 .hero:before,.hero:after{display:none}
 
-/* Insignia / Logo del colegio ubicado en la esquina superior izquierda */
+/* Insignia / Logo del colegio ubicado en la esquina superior izquierda (Bajado en escritorio) */
 .school-logo{
   position:absolute;
-  top:45px;
-  left:30px;
-  width:90px;
+  top:65px;
+  left:35px;
+  width:95px;
   height:auto;
   z-index:3;
   filter: drop-shadow(0 3px 8px rgba(0,0,0,0.8));
@@ -133,7 +133,7 @@ h3{color:var(--azul2);font-size:23px}
 .icon{font-size:42px}
 
 /* ======================================================== */
-/* SECCIÓN INTRODUCCIÓN (CON FONDO 2)                       */
+/* SECCIÓN INTRODUCCIÓN (FONDO OSCURO Y PUNTOS NEGROS)     */
 /* ======================================================== */
 #introduccion {
   max-width: 100% !important;
@@ -142,21 +142,26 @@ h3{color:var(--azul2);font-size:23px}
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.90)), 
+    linear-gradient(rgba(20, 24, 33, 0.92), rgba(20, 24, 33, 0.95)), 
     url("fondo_2.gif");
   background-size: 1800px auto; 
   background-position: center;
   background-repeat: no-repeat;
+  color: #fff;
   border-radius: 0;
 }
-#introduccion h2 { color: var(--azul); }
+#introduccion h2 { color: var(--amarillo); }
+#introduccion h3 { color: var(--celeste); }
+#introduccion p { color: #f0f4f8; }
 #introduccion .problem {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(9, 43, 76, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
+#introduccion .problem h3 { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN CÓMO FUNCIONA (CON FONDO 2)                      */
+/* SECCIÓN CÓMO FUNCIONA (FONDO OSCURO Y PUNTOS NEGROS)    */
 /* ======================================================== */
 #funcionamiento {
   max-width: 100% !important;
@@ -165,18 +170,23 @@ h3{color:var(--azul2);font-size:23px}
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.90)), 
+    linear-gradient(rgba(20, 24, 33, 0.92), rgba(20, 24, 33, 0.95)), 
     url("fondo_2.gif");
   background-size: 1800px auto; 
   background-position: center;
   background-repeat: no-repeat;
+  color: #fff;
   border-radius: 0;
 }
-#funcionamiento h2 { color: var(--azul); }
+#funcionamiento h2 { color: var(--amarillo); }
+#funcionamiento h3 { color: var(--celeste); }
+#funcionamiento p { color: #f0f4f8; }
 #funcionamiento .step, #funcionamiento .card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(9, 43, 76, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
+#funcionamiento .card strong { color: var(--amarillo); }
 
 /* ======================================================== */
 /* SECCIÓN MATERIALES (CON GIF ANTERIOR)                    */
