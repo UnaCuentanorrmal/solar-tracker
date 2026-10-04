@@ -21,18 +21,18 @@ nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 10px;padding:7px
 nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:100px 20px 60px;position:relative;overflow:hidden;background-image:url("solar_tracker_portada.jpg");background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero:before,.hero:after{display:none}
-.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-content{position:relative;z-index:2;width:100%;max-width:none}
 .sun{font-size:80px;display:block;animation:float 4s ease-in-out infinite}
 .hero h1{font-size:clamp(42px,7vw,78px);margin:8px 0;color:#fff}
 .hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:0 0 28px}
 .hero .line{height:3px;width:100px;background:var(--amarillo);margin:25px auto}
-.cover-details{max-width:1050px;margin:35px auto 0;text-align:left}
+.cover-details{width:100%;max-width:none;margin:35px auto 0;text-align:left;padding:0 22px}
 .cover-row{display:flex;justify-content:space-between;align-items:flex-start;width:100%}
-.members{padding:0 18px;border-left:3px solid var(--amarillo);font-size:15px;line-height:1.55}
+.members{padding:0 0 0 14px;border-left:3px solid var(--amarillo);font-size:15px;line-height:1.55}
 .members strong{display:block;font-size:18px;margin-bottom:7px;color:var(--amarillo)}
-.date{padding:0 18px;text-align:right;font-size:19px;color:var(--amarillo)}
+.date{padding:0;text-align:right;font-size:19px;color:var(--amarillo)}
 .date strong{font-weight:bold}
-.institution{margin-top:28px;text-align:right;font-size:17px;line-height:1.5}
+.institution{margin-top:28px;padding:0;text-align:right;font-size:17px;line-height:1.5}
 .institution strong{display:block;color:#fff}
 .institution span{display:block;opacity:.9}
 
@@ -65,6 +65,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  h2{font-size:31px}
  .arrow{transform:rotate(90deg)}
  .cover-row{align-items:flex-start}
+ .cover-details{padding-left:14px;padding-right:14px}
  .members{padding-left:10px}
  .date{padding-right:0}
 }
