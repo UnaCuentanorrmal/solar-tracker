@@ -37,6 +37,18 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   background-repeat:no-repeat;
 }
 .hero:before,.hero:after{display:none}
+
+/* Insignia / Logo del colegio ubicado en la esquina superior izquierda */
+.school-logo{
+  position:absolute;
+  top:25px;
+  left:25px;
+  width:90px;
+  height:auto;
+  z-index:3;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.8));
+}
+
 .hero-content{position:relative;z-index:2;width:100%;max-width:none}
 .hero-transition{
   height:180px;
@@ -145,10 +157,16 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  nav{overflow-x:auto;white-space:nowrap;text-align:left;padding:10px 15px}
  nav a{display:inline-block;margin:0 2px;font-size:12.5px; padding:6px 8px;}
  
- /* Bajar "un poquito" el bloque superior (sol, titulo, etc) respecto a la versión anterior */
  .hero { 
    align-items: flex-start; 
-   padding: 75px 15px 30px; /* Aumentado de 45px a 75px para bajar el contenido principal */
+   padding: 75px 15px 30px; 
+ }
+ 
+ /* Logo achicado y reubicado para la esquina superior izquierda en celular */
+ .school-logo { 
+   width: 45px; 
+   top: 55px; 
+   left: 12px; 
  }
  
  .sun { width: 90px; height: 90px; margin-top: 5px; margin-bottom: 2px; }
@@ -159,8 +177,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  .hero p { font-size: 12.5px; margin-bottom: 2px; }
  .hero-date { font-size: 13.5px; margin-bottom: 0px; }
  
- /* Integrantes desplazados MUCHO MÁS ABAJO para separarlos */
- .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 105px; /* Aumentado significativamente para bajar los integrantes */ }
+ .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 105px; }
  .cover-row { flex-direction: column; gap: 15px; align-items: flex-start; }
  .members { padding-left: 12px; font-size: 14px; }
  .members strong { font-size: 16px; margin-bottom: 4px; }
@@ -187,9 +204,12 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <a href="#introduccion">1. Introducción</a>
 <a href="#funcionamiento">2. Cómo funciona</a>
 <a href="#materiales">3. Materiales</a>
+<a href="#conclusion">4. Conclusión</a>
 </nav>
 
 <header class="hero" id="portada">
+<img src="insignia calama.png" alt="Insignia Don Bosco Calama" class="school-logo">
+
 <div class="hero-content">
 
 <img src="sol.png" alt="Sol" class="sun">
@@ -282,6 +302,18 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
 <div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
 <div class="card material"><div class="icon">🏗️</div><h3>Estructura del prototipo</h3><p>Sostiene el panel y permite que el mecanismo pueda cambiar su orientación.</p></div>
+</div>
+</section>
+
+<section id="conclusion">
+<span class="section-number">04</span>
+<h2>Conclusión</h2>
+<p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
+
+<div class="card-grid">
+<div class="card"><div class="icon">📈</div><h3>Mayor Eficiencia</h3><p>Al ajustar la posición del panel constantemente según la luz, se logra captar una mayor cantidad de energía en comparación con una instalación estática.</p></div>
+<div class="card"><div class="icon">🛠️</div><h3>Aprendizaje Técnico</h3><p>La integración de programación en Arduino, electrónica y mecánica fortalece habilidades clave en el desarrollo de soluciones tecnológicas.</p></div>
+<div class="card"><div class="icon">🌍</div><h3>Visión Sustentable</h3><p>Permite comprender y proponer mejoras reales para el aprovechamiento de las energías limpias, contribuyendo al cuidado del medio ambiente.</p></div>
 </div>
 </section>
 </main>
