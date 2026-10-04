@@ -139,30 +139,34 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
-/* VISTA DE CELULAR: Ajustes específicos solicitados */
+/* VISTA DE CELULAR EXCLUSIVA */
 @media(max-width:650px){
  body { font-size: 14.5px; }
  nav{overflow-x:auto;white-space:nowrap;text-align:left;padding:10px 15px}
  nav a{display:inline-block;margin:0 2px;font-size:12.5px; padding:6px 8px;}
  
- /* Elevar contenido general de la portada */
- .hero { padding: 60px 15px 40px; }
- .sun { width: 100px; height: 100px; margin-bottom: 5px; }
- .hero .title-line { margin: 8px auto; }
- .hero h1 { font-size: clamp(32px, 8vw, 42px); margin: 4px 0; }
- .hero h2 { font-size: 17px; margin: 10px 0 6px; }
+ /* Alineación superior y reducción de paddings para elevar todo */
+ .hero { 
+   align-items: flex-start; /* Fuerza a mover todo hacia arriba */
+   padding: 45px 15px 30px; 
+ }
  
- /* Achicar institución para que quede más centrado */
- .hero p { font-size: 13.5px; margin-bottom: 4px; }
- .hero-date { font-size: 15px; margin-bottom: 15px; }
+ .sun { width: 90px; height: 90px; margin-top: 5px; margin-bottom: 2px; }
+ .hero .title-line { margin: 6px auto; }
+ .hero h1 { font-size: clamp(30px, 8vw, 38px); margin: 2px 0; }
+ .hero h2 { font-size: 15.5px; margin: 6px 0 2px; }
  
- /* Mover integrantes más abajo */
- .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 40px; }
+ /* Institución achicada y centrada + fecha pegada arriba */
+ .hero p { font-size: 12.5px; margin-bottom: 2px; }
+ .hero-date { font-size: 13.5px; margin-bottom: 0px; }
+ 
+ /* Integrantes desplazados significativamente MÁS ABAJO */
+ .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 55px; }
  .cover-row { flex-direction: column; gap: 15px; align-items: flex-start; }
- .members { padding-left: 12px; font-size: 14.5px; }
- .members strong { font-size: 17px; margin-bottom: 5px; }
+ .members { padding-left: 12px; font-size: 14px; }
+ .members strong { font-size: 16px; margin-bottom: 4px; }
  
- .scroll { font-size: 36px; margin-top: 20px; }
+ .scroll { font-size: 34px; margin-top: 20px; }
  
  section { padding-top: 80px; padding-left: 18px; padding-right: 18px; }
  h2 { font-size: 28px; margin: 10px 0 16px; }
