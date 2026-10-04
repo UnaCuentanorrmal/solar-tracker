@@ -38,7 +38,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 }
 .hero:before,.hero:after{display:none}
 
-/* Insignia / Logo del colegio ubicado en la esquina superior izquierda (más abajo en escritorio) */
+/* Insignia / Logo del colegio ubicado en la esquina superior izquierda */
 .school-logo{
   position:absolute;
   top:45px;
@@ -64,7 +64,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-/* Sol con resplandor/contorno blanco luminoso */
+/* Sol con resplandor luminoso */
 .sun{
   width:130px;
   height:130px;
@@ -91,7 +91,6 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:20px 0 15px;color:#ffffff;text-shadow:0 2px 10px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.8)}
 .hero p{font-size:18px;margin-bottom:5px;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.9)}
 
-/* Fecha central bajo el nombre de la institución */
 .hero-date{
   font-size:20px;
   color:var(--amarillo);
@@ -107,7 +106,6 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .members{padding:0 0 0 14px;border-left:3px solid var(--amarillo);font-size:16px;line-height:1.6;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9)}
 .members strong{display:block;font-size:19px;margin-bottom:7px;color:var(--amarillo);text-shadow:0 2px 8px rgba(0,0,0,0.95)}
 
-/* Flecha con resplandor intenso para ser mucho más notoria */
 .scroll{
   margin-top:35px;
   font-size:44px;
@@ -134,24 +132,36 @@ h3{color:var(--azul2);font-size:23px}
 .card:hover{transform:translateY(-8px);box-shadow:0 14px 32px #092b4c22}
 .icon{font-size:42px}
 
-/* Estilo para la tarjeta con imagen GIF integrada */
-.card-media {
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.card-media img {
+/* ======================================================== */
+/* SECCIÓN MATERIALES CON EL GIF DE FONDO CONFIGURADO */
+/* ======================================================== */
+#materiales {
+  max-width: 100% !important;
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
+  padding-left: max(24px, calc((100% - 1100px) / 2));
+  padding-right: max(24px, calc((100% - 1100px) / 2));
+  position: relative;
+  background-image: 
+    linear-gradient(rgba(9, 43, 76, 0.88), rgba(9, 43, 76, 0.92)), 
+    url("Solar Energy Animation GIF by xponentialdesign.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-radius: 0;
 }
-.card-media-content {
-  padding: 20px;
+
+#materiales h2 { color: var(--amarillo); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+#materiales .lead { color: #f0f4f8; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+#materiales .section-number { background: var(--amarillo); color: var(--azul); }
+
+#materiales .card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.card-media-content h3 { color: var(--azul); margin-top: 0; margin-bottom: 8px; }
-.card-media-content p { margin: 0; font-size: 15px; color: var(--texto); }
+#materiales .card h3 { color: var(--azul); }
+#materiales .card p { color: var(--texto); }
+/* ======================================================== */
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b}
 .flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:35px 0}
@@ -313,22 +323,14 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
 <div class="card-grid">
-<!-- Tarjeta con la animación visible -->
-<div class="card card-media">
-  <img src="Solar Energy Animation GIF by xponentialdesign.gif" alt="Animación de paneles solares">
-  <div class="card-media-content">
-    <h3>Panel solar de 5 V / 200 mA</h3>
-    <p>Capta la radiación solar y la transforma en energía eléctrica.</p>
-  </div>
-</div>
-
+<div class="card material"><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
 <div class="card material"><div class="icon">👁</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
 <div class="card material"><div class="icon">⚙</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
 <div class="card material"><div class="icon">🔴</div><h3>Resistencias</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
 <div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
-<div class="card material"><div class="icon">🏗️️</div><h3>Estructura del prototipo</h3><p>Sostiene el panel y permite que el mecanismo pueda cambiar su orientación.</p></div>
+<div class="card material"><div class="icon">🏗️</div><h3>Estructura del prototipo</h3><p>Sostiene el panel y permite que el mecanismo pueda cambiar su orientación.</p></div>
 </div>
 </section>
 
