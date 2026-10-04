@@ -163,7 +163,7 @@ h3{color:var(--azul2);font-size:23px}
 #materiales .card p { color: var(--texto); }
 /* ======================================================== */
 
-.problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:25px;}
+.problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
 .flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:35px 0}
 .step{background:#fff;padding:18px;border-radius:16px;box-shadow:0 5px 18px #0001;text-align:center;min-width:145px;transition:.3s}
 .step:hover{transform:scale(1.05)}
@@ -275,19 +275,13 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <section id="introduccion">
 <span class="section-number">01</span>
 <h2>Introducción</h2>
-<p class="lead">El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</strong> (seguidor solar), un sistema automatizado que utiliza sensores de luz para orientar un panel fotovoltaico hacia la zona de mayor iluminación.</p>
-
-<p>Los sistemas fotovoltaicos convencionales transforman la luz en electricidad, pero al estar fijos suelen perder eficiencia cuando la posición del Sol cambia a lo largo del día. Para solucionar este desalineamiento, nuestro prototipo emplea una placa <strong>Arduino Nano</strong>, sensores LDR y servomotores que ajustan dinámicamente la posición del panel.</p>
+<p class="lead">
+El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</strong> o seguidor solar: un sistema automatizado que utiliza sensores de luz para detectar hacia dónde existe una mayor iluminación y, mediante una placa Arduino Nano y servomotores, modificar de forma dinámica la posición del mecanismo que sostiene un panel fotovoltaico. Tal como señala el Departamento de Energía de Estados Unidos, los sistemas fotovoltaicos convierten la luz solar en electricidad, y las estructuras de seguimiento permiten mover automáticamente los paneles para seguir la trayectoria del Sol. En una instalación convencional fija, el panel puede quedar desalineado a medida que el Sol cambia de posición durante el día, reduciendo su eficiencia; este prototipo busca solucionar precisamente ese problema mediante una corrección automática basada en la lectura de cuatro sensores LDR y resistencias de 10 kΩ.
+</p>
 
 <div class="problem">
 <h3>💡 Desarrollo y Valor Educativo</h3>
-<p>Durante su creación, el proyecto integró conocimientos de electricidad, electrónica, programación y fabricación mecánica (incluyendo impresión 3D). Un reto superado en las pruebas fue corregir el ángulo de los servomotores, ajustándolos de 360° a 180° para lograr un funcionamiento normal. Su valor principal radica en integrar control automático y energía renovable en un prototipo funcional a escala educativa.</p>
-</div>
-
-<div class="card-grid">
-<div class="card"><div class="icon">☀️</div><h3>Propósito</h3><p>Optimizar la captación de energía reduciendo el desalineamiento respecto a la luz solar.</p></div>
-<div class="card"><div class="icon">⚙️</div><h3>Tecnología</h3><p>Control automatizado mediante Arduino Nano, sensores de luz y servomotores.</p></div>
-<div class="card"><div class="icon">🎓</div><h3>Aprendizaje</h3><p>Integración práctica de electrónica, programación y diseño mecánico.</p></div>
+<p>Durante la realización del proyecto se combinaron conocimientos de electricidad, electrónica, programación y fabricación mecánica, abarcando desde la investigación inicial y la impresión 3D de piezas hasta el montaje de componentes y pruebas de código. Un detalle clave corregido durante el proceso fue ajustar el movimiento de los servomotores de 360° a 180°, logrando que el sistema operara con normalidad. Su principal valor educativo radica en integrar control automático y energía renovable en un prototipo funcional a escala, permitiendo estudiar de forma práctica la relación directa entre la orientación de un panel, la radiación recibida y la generación de energía fotovoltaica.</p>
 </div>
 </section>
 
