@@ -52,16 +52,16 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-/* Imagen sol.png con animación doble (girar + flotar) y corrección de fondo blanco en móviles */
+/* Imagen sol.png con mayor velocidad en el movimiento flotante */
 .sun{
   width:130px;
   height:130px;
   object-fit:contain;
   display:block;
   margin:0 auto 15px auto;
-  border-radius:50%; /* Recorta esquinas para evitar bordes cuadrados en móviles */
-  mix-blend-mode:multiply; /* Elimina automáticamente el fondo blanco de sol.png */
-  animation: spin-float 14s linear infinite;
+  border-radius:50%;
+  mix-blend-mode:multiply;
+  animation: spin-float 8s linear infinite; /* Cambiado a 8s para subir la velocidad */
   filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6));
 }
 
@@ -112,12 +112,12 @@ h3{color:var(--azul2);font-size:23px}
 .material{min-height:190px}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
 
-/* Animación combinada: Gira 360 grados y sube/baja 2 veces por ciclo */
+/* Keyframes ajustados para un recorrido vertical ligeramente más amplio y dinámico */
 @keyframes spin-float {
   0% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-12px) rotate(90deg); }
+  25% { transform: translateY(-15px) rotate(90deg); }
   50% { transform: translateY(0) rotate(180deg); }
-  75% { transform: translateY(-12px) rotate(270deg); }
+  75% { transform: translateY(-15px) rotate(270deg); }
   100% { transform: translateY(0) rotate(360deg); }
 }
 
@@ -151,7 +151,6 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <header class="hero" id="portada">
 <div class="hero-content">
 
-<!-- Sol giratorio y flotante -->
 <img src="sol.png" alt="Sol" class="sun">
 
 <div class="title-line"></div>
@@ -214,11 +213,11 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="flow">
 <div class="step"><div class="icon">☀️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
 <div class="arrow">→</div>
-<div class="step"><div class="icon">👁️</div><strong>LDR</strong><br>Detectan la luz</div>
+<div class="step"><div class="icon">👁️️</div><strong>LDR</strong><br>Detectan la luz</div>
 <div class="arrow">→</div>
 <div class="step"><div class="icon">🧠</div><strong>Arduino Nano</strong><br>Compara las lecturas</div>
 <div class="arrow">→</div>
-<div class="step"><div class="icon">⚙️</div><strong>Servo SG90</strong><br>Mueve el panel</div>
+<div class="step"><div class="icon">⚙️️</div><strong>Servo SG90</strong><br>Mueve el panel</div>
 <div class="arrow">→</div>
 <div class="step"><div class="icon">🔆</div><strong>Panel</strong><br>Se orienta</div>
 </div>
