@@ -139,24 +139,30 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
-/* VISTA DE CELULAR: Elementos reducidos a un ~90% de su tamaño original */
+/* VISTA DE CELULAR: Ajustes específicos solicitados */
 @media(max-width:650px){
  body { font-size: 14.5px; }
  nav{overflow-x:auto;white-space:nowrap;text-align:left;padding:10px 15px}
  nav a{display:inline-block;margin:0 2px;font-size:12.5px; padding:6px 8px;}
  
- .hero { padding: 90px 15px 50px; }
- .hero h1 { font-size: clamp(34px, 8vw, 45px); margin:8px 0;}
- .hero h2 { font-size: 18px; margin: 15px 0 10px; }
- .hero p { font-size: 16px; }
- .sun { width: 115px; height: 115px; margin-bottom: 10px; }
- .scroll { font-size: 38px; margin-top: 25px; }
- .hero-date { font-size: 17px; margin-bottom: 30px; }
+ /* Elevar contenido general de la portada */
+ .hero { padding: 60px 15px 40px; }
+ .sun { width: 100px; height: 100px; margin-bottom: 5px; }
+ .hero .title-line { margin: 8px auto; }
+ .hero h1 { font-size: clamp(32px, 8vw, 42px); margin: 4px 0; }
+ .hero h2 { font-size: 17px; margin: 10px 0 6px; }
  
+ /* Achicar institución para que quede más centrado */
+ .hero p { font-size: 13.5px; margin-bottom: 4px; }
+ .hero-date { font-size: 15px; margin-bottom: 15px; }
+ 
+ /* Mover integrantes más abajo */
+ .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 40px; }
  .cover-row { flex-direction: column; gap: 15px; align-items: flex-start; }
- .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 20px; }
  .members { padding-left: 12px; font-size: 14.5px; }
  .members strong { font-size: 17px; margin-bottom: 5px; }
+ 
+ .scroll { font-size: 36px; margin-top: 20px; }
  
  section { padding-top: 80px; padding-left: 18px; padding-right: 18px; }
  h2 { font-size: 28px; margin: 10px 0 16px; }
