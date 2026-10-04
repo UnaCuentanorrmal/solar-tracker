@@ -56,7 +56,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   margin-top:-1px;
   position:relative;
   background-image:
-    linear-gradient(to bottom, rgba(244,248,251,0) 0%, rgba(244,248,251,.35) 35%, var(--fondo) 100%),
+    linear-gradient(to bottom, rgba(13,13,13,0) 0%, rgba(13,13,13,.5) 50%, #0d0d0d 100%),
     url("solar_tracker_portada.jpg");
   background-size:cover;
   background-position:center bottom;
@@ -133,23 +133,25 @@ h3{color:var(--azul2);font-size:23px}
 .icon{font-size:42px}
 
 /* ======================================================== */
-/* SECCIÓN INTRODUCCIÓN (PUNTOS VISIBLES CON FONDO OSCURO)    */
+/* SECCIÓN INTRODUCCIÓN (FONDO UNIFICADO Y SIN CORTES)      */
 /* ======================================================== */
 #introduccion {
   max-width: 100% !important;
   width: 100%;
+  padding-top: 40px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
   background-image: 
-    linear-gradient(rgba(13, 13, 13, 0.45), rgba(13, 13, 13, 0.65)), 
+    linear-gradient(to bottom, #0d0d0d 0%, rgba(13, 13, 13, 0.4) 15%, rgba(13, 13, 13, 0.4) 85%, #0d0d0d 100%), 
     url("fondo_2.gif");
   background-size: 1600px auto; 
   background-position: center;
   background-repeat: repeat;
   color: #fff;
   border-radius: 0;
+  margin-top: -1px;
 }
 #introduccion h2 { color: var(--amarillo); }
 #introduccion h3 { color: var(--celeste); }
@@ -162,23 +164,25 @@ h3{color:var(--azul2);font-size:23px}
 #introduccion .problem h3 { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN CÓMO FUNCIONA (PUNTOS VISIBLES CON FONDO OSCURO)   */
+/* SECCIÓN CÓMO FUNCIONA (FONDO UNIFICADO Y SIN CORTES)     */
 /* ======================================================== */
 #funcionamiento {
   max-width: 100% !important;
   width: 100%;
+  padding-top: 40px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
   background-image: 
-    linear-gradient(rgba(13, 13, 13, 0.45), rgba(13, 13, 13, 0.65)), 
+    linear-gradient(to bottom, #0d0d0d 0%, rgba(13, 13, 13, 0.4) 15%, rgba(13, 13, 13, 0.4) 85%, #0d0d0d 100%), 
     url("fondo_2.gif");
   background-size: 1600px auto; 
   background-position: center;
   background-repeat: repeat;
   color: #fff;
   border-radius: 0;
+  margin-top: -1px;
 }
 #funcionamiento h2 { color: var(--amarillo); }
 #funcionamiento h3 { color: var(--celeste); }
@@ -191,7 +195,7 @@ h3{color:var(--azul2);font-size:23px}
 #funcionamiento .card strong { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN MATERIALES (CON GIF ANTERIOR)                    */
+/* SECCIÓN MATERIALES                                       */
 /* ======================================================== */
 #materiales {
   max-width: 100% !important;
@@ -349,7 +353,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <p class="lead">El sistema detecta diferencias de iluminación y utiliza esa información para decidir hacia qué lado debe moverse el panel.</p>
 
 <div class="flow">
-<div class="step"><div class="icon">☀️️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
+<div class="step"><div class="icon">☀️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
 <div class="arrow">→</div>
 <div class="step"><div class="icon">👁</div><strong>LDR</strong><br>Detectan la luz</div>
 <div class="arrow">→</div>
