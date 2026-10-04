@@ -38,12 +38,12 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 }
 .hero:before,.hero:after{display:none}
 
-/* Insignia / Logo del colegio ubicado en la esquina superior izquierda (Bajado en escritorio) */
+/* Insignia / Logo del colegio ubicado en la esquina superior izquierda (Bajada y con su tamaño original) */
 .school-logo{
   position:absolute;
-  top:65px;
-  left:35px;
-  width:95px;
+  top:50px;
+  left:30px;
+  width:90px;
   height:auto;
   z-index:3;
   filter: drop-shadow(0 3px 8px rgba(0,0,0,0.8));
@@ -133,7 +133,7 @@ h3{color:var(--azul2);font-size:23px}
 .icon{font-size:42px}
 
 /* ======================================================== */
-/* SECCIÓN INTRODUCCIÓN (FONDO OSCURO Y PUNTOS NEGROS)     */
+/* SECCIÓN INTRODUCCIÓN (FONDO NEGRO PURO Y PUNTOS VISIBLES) */
 /* ======================================================== */
 #introduccion {
   max-width: 100% !important;
@@ -142,7 +142,7 @@ h3{color:var(--azul2);font-size:23px}
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-image: 
-    linear-gradient(rgba(20, 24, 33, 0.92), rgba(20, 24, 33, 0.95)), 
+    linear-gradient(rgba(14, 14, 14, 0.94), rgba(14, 14, 14, 0.96)), 
     url("fondo_2.gif");
   background-size: 1800px auto; 
   background-position: center;
@@ -154,14 +154,14 @@ h3{color:var(--azul2);font-size:23px}
 #introduccion h3 { color: var(--celeste); }
 #introduccion p { color: #f0f4f8; }
 #introduccion .problem {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
 }
 #introduccion .problem h3 { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN CÓMO FUNCIONA (FONDO OSCURO Y PUNTOS NEGROS)    */
+/* SECCIÓN CÓMO FUNCIONA (FONDO NEGRO PURO Y PUNTOS VISIBLES)*/
 /* ======================================================== */
 #funcionamiento {
   max-width: 100% !important;
@@ -170,7 +170,7 @@ h3{color:var(--azul2);font-size:23px}
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-image: 
-    linear-gradient(rgba(20, 24, 33, 0.92), rgba(20, 24, 33, 0.95)), 
+    linear-gradient(rgba(14, 14, 14, 0.94), rgba(14, 14, 14, 0.96)), 
     url("fondo_2.gif");
   background-size: 1800px auto; 
   background-position: center;
@@ -182,8 +182,8 @@ h3{color:var(--azul2);font-size:23px}
 #funcionamiento h3 { color: var(--celeste); }
 #funcionamiento p { color: #f0f4f8; }
 #funcionamiento .step, #funcionamiento .card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
 }
 #funcionamiento .card strong { color: var(--amarillo); }
@@ -362,7 +362,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <div class="card-grid">
 <div class="card"><strong>1. Detectar</strong><p>Los LDR reciben la iluminación del entorno.</p></div>
 <div class="card"><strong>2. Comparar</strong><p>Arduino Nano compara los valores obtenidos por los sensores.</p></div>
-<div class="card"><strong>3. Decidir</strong><p>Si existe una diferencia, el programa determina hacia qué lado debe corregirse la posición.</p></div>
+<div class="card"><strong>3. Decidir</strong><p>Si existe una diferencia, el programa determines hacia qué lado debe corregirse la posición.</p></div>
 <div class="card"><strong>4. Mover</strong><p>El servo gira el soporte del panel hacia la dirección indicada.</p></div>
 <div class="card"><strong>5. Repetir</strong><p>El sistema vuelve a medir para mantener el panel orientado mientras cambia la iluminación.</p></div>
 </div>
