@@ -16,17 +16,32 @@
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7;overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,43,76,.92);backdrop-filter:blur(12px);padding:12px 20px;text-align:center;box-shadow:0 3px 18px #0003}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(0);transition:transform .35s ease;background:rgba(9,43,76,.92);backdrop-filter:blur(12px);padding:12px 20px;text-align:center;box-shadow:0 3px 18px #0003}
+.nav-hidden{transform:translateY(-110%) !important}
 nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 10px;padding:7px 10px;border-radius:8px;transition:.25s}
 nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:100px 20px 60px;position:relative;overflow:hidden;background-image:url("solar_tracker_portada.jpg");background-size:cover;background-position:center;background-repeat:no-repeat}
 .hero:before,.hero:after{display:none}
 .hero-content{position:relative;z-index:2;width:100%;max-width:none}
+.hero-transition{
+  height:180px;
+  width:100%;
+  margin-top:-1px;
+  position:relative;
+  background-image:
+    linear-gradient(to bottom, rgba(244,248,251,0) 0%, rgba(244,248,251,.35) 35%, var(--fondo) 100%),
+    url("solar_tracker_portada.jpg");
+  background-size:cover;
+  background-position:center bottom;
+  background-repeat:no-repeat;
+  z-index:1;
+}
+
 .sun{font-size:80px;display:block;animation:float 4s ease-in-out infinite}
 .hero h1{font-size:clamp(42px,7vw,78px);margin:8px 0;color:#fff}
 .hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:0 0 28px}
 .hero .line{height:3px;width:100px;background:var(--amarillo);margin:25px auto}
-.cover-details{width:100%;max-width:none;margin:35px auto 0;text-align:left;padding:0 22px}
+.cover-details{width:100%;max-width:none;margin:65px auto 0;text-align:left;padding:0 22px}
 .cover-row{display:flex;justify-content:space-between;align-items:flex-start;width:100%}
 .members{padding:0 0 0 14px;border-left:3px solid var(--amarillo);font-size:15px;line-height:1.55}
 .members strong{display:block;font-size:18px;margin-bottom:7px;color:var(--amarillo)}
@@ -37,7 +52,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .institution span{display:block;opacity:.9}
 
 .scroll{margin-top:40px;animation:bounce 2s infinite;opacity:.85}
-section{max-width:1100px;margin:0 auto;padding:100px 24px 40px;min-height:70vh;opacity:0;transform:translateY(55px);transition:opacity .8s ease,transform .8s ease}
+section{max-width:1100px;margin:0 auto;padding:65px 24px 40px;min-height:70vh;opacity:0;transform:translateY(55px);transition:opacity .8s ease,transform .8s ease}
 section.visible{opacity:1;transform:translateY(0)}
 .section-number{display:inline-block;background:var(--amarillo);color:#172033;font-weight:bold;border-radius:30px;padding:6px 15px}
 h2{font-size:38px;color:var(--azul);margin:12px 0 20px}
@@ -115,6 +130,8 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="scroll">↓ Desliza para comenzar ↓</div>
 </div>
 </header>
+
+<div class="hero-transition" aria-hidden="true"></div>
 
 <main>
 <section id="introduccion">
@@ -194,6 +211,31 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.12});
 sections.forEach(section=>observer.observe(section));
+
+const nav=document.querySelector("nav");
+let lastScrollY=window.scrollY;
+let ticking=false;
+
+window.addEventListener("scroll",()=>{
+  if(ticking) return;
+  window.requestAnimationFrame(()=>{
+    const current=window.scrollY;
+
+    if(current > lastScrollY && current > 80){
+      nav.classList.add("nav-hidden");
+    }else if(current < lastScrollY){
+      nav.classList.remove("nav-hidden");
+    }
+
+    if(current <= 20){
+      nav.classList.remove("nav-hidden");
+    }
+
+    lastScrollY=current;
+    ticking=false;
+  });
+  ticking=true;
+},{passive:true});
 </script>
 </body>
 </html>
