@@ -145,10 +145,10 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  nav{overflow-x:auto;white-space:nowrap;text-align:left;padding:10px 15px}
  nav a{display:inline-block;margin:0 2px;font-size:12.5px; padding:6px 8px;}
  
- /* Alineación superior y reducción de paddings para elevar todo */
+ /* Bajar "un poquito" el bloque superior (sol, titulo, etc) respecto a la versión anterior */
  .hero { 
-   align-items: flex-start; /* Fuerza a mover todo hacia arriba */
-   padding: 45px 15px 30px; 
+   align-items: flex-start; 
+   padding: 75px 15px 30px; /* Aumentado de 45px a 75px para bajar el contenido principal */
  }
  
  .sun { width: 90px; height: 90px; margin-top: 5px; margin-bottom: 2px; }
@@ -156,12 +156,11 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  .hero h1 { font-size: clamp(30px, 8vw, 38px); margin: 2px 0; }
  .hero h2 { font-size: 15.5px; margin: 6px 0 2px; }
  
- /* Institución achicada y centrada + fecha pegada arriba */
  .hero p { font-size: 12.5px; margin-bottom: 2px; }
  .hero-date { font-size: 13.5px; margin-bottom: 0px; }
  
- /* Integrantes desplazados significativamente MÁS ABAJO */
- .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 55px; }
+ /* Integrantes desplazados MUCHO MÁS ABAJO para separarlos */
+ .cover-details { padding-left: 10px; padding-right: 10px; margin-top: 105px; /* Aumentado significativamente para bajar los integrantes */ }
  .cover-row { flex-direction: column; gap: 15px; align-items: flex-start; }
  .members { padding-left: 12px; font-size: 14px; }
  .members strong { font-size: 16px; margin-bottom: 4px; }
