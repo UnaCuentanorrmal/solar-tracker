@@ -71,22 +71,24 @@ h3{color:var(--azul2);font-size:23px}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+
+/* Correcciones para vista móvil */
 @media(max-width:650px){
- nav{overflow-x:auto;white-space:nowrap;text-align:left}
- nav a{display:inline-block;margin:0 3px;font-size:13px}
- .cover-row{gap:20px}
- .institution{text-align:right}
+ nav{overflow-x:auto;white-space:nowrap;text-align:left;padding-bottom:12px}
+ nav a{display:inline-block;margin:0 3px;font-size:14px}
  section{padding-top:90px}
  h2{font-size:31px}
+ 
+ /* Solución al diagrama de flujo */
+ .flow {flex-direction: column; gap: 10px;}
  .arrow{transform:rotate(90deg)}
- .cover-row{align-items:flex-start}
+ 
+ /* Solución a los datos de la portada */
+ .cover-row{flex-direction:column; gap:20px; align-items:flex-start}
  .cover-details{padding-left:14px;padding-right:14px}
  .members{padding-left:10px}
- .date{padding-right:0}
-}
-@media(max-width:430px){
- .cover-row{flex-direction:column}
- .date{align-self:flex-end}
+ .date{padding-right:0; text-align:left; color:var(--amarillo)}
+ .institution{text-align:left; margin-top:20px}
 }
 </style>
 </head>
@@ -188,7 +190,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card material"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
 <div class="card material"><div class="icon">👁️</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
-<div class="card material"><div class="icon">⚙️</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
+<div class="card material"><div class="icon">⚙️️</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
 <div class="card material"><div class="icon">🔴</div><h3>Resistencias</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
 <div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
