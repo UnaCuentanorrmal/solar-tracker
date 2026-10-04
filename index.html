@@ -20,7 +20,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(0);tran
 .nav-hidden{transform:translateY(-110%) !important}
 nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 10px;padding:7px 10px;border-radius:8px;transition:.25s}
 nav a:hover{background:#ffffff22;color:var(--amarillo)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:100px 20px 60px;position:relative;overflow:hidden;background-image:url("solar_tracker_portada.jpg");background-size:cover;background-position:center;background-repeat:no-repeat}
+
+/* Hero con superposición oscura para resaltar texto */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  padding:100px 20px 60px;
+  position:relative;
+  overflow:hidden;
+  background-image: linear-gradient(to bottom, rgba(9, 43, 76, 0.75), rgba(9, 43, 76, 0.85)), url("solar_tracker_portada.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
 .hero:before,.hero:after{display:none}
 .hero-content{position:relative;z-index:2;width:100%;max-width:none}
 .hero-transition{
@@ -37,21 +53,36 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-.sun{font-size:80px;display:block;animation:float 4s ease-in-out infinite}
-.hero h1{font-size:clamp(42px,7vw,78px);margin:8px 0;color:#fff}
-.hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:0 0 28px}
-.hero .line{height:3px;width:100px;background:var(--amarillo);margin:25px auto}
-.cover-details{width:100%;max-width:none;margin:65px auto 0;text-align:left;padding:0 22px}
+.sun{font-size:80px;display:block;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.3))}
+.hero h1{font-size:clamp(42px,7vw,78px);margin:8px 0;color:#fff;text-shadow:0 3px 12px rgba(0,0,0,0.6)}
+.hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:0 0 28px;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.hero p{font-size:18px;text-shadow:0 2px 6px rgba(0,0,0,0.5)}
+.hero .line{height:3px;width:100px;background:var(--amarillo);margin:25px auto;box-shadow:0 0 8px var(--amarillo)}
+
+/* Tarjeta traslúcida para legibilidad de los integrantes */
+.cover-details{
+  width:100%;
+  max-width:850px;
+  margin:45px auto 0;
+  text-align:left;
+  padding:28px 32px;
+  background:rgba(9, 43, 76, 0.65);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-radius:18px;
+  border:1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:0 8px 32px rgba(0, 0, 0, 0.35);
+}
 .cover-row{display:flex;justify-content:space-between;align-items:flex-start;width:100%}
-.members{padding:0 0 0 14px;border-left:3px solid var(--amarillo);font-size:15px;line-height:1.55}
-.members strong{display:block;font-size:18px;margin-bottom:7px;color:var(--amarillo)}
-.date{padding:0;text-align:right;font-size:19px;color:var(--amarillo)}
+.members{padding:0 0 0 16px;border-left:3px solid var(--amarillo);font-size:16px;line-height:1.6;color:#ffffff;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+.members strong{display:block;font-size:19px;margin-bottom:8px;color:var(--amarillo);text-shadow:0 1px 4px rgba(0,0,0,0.6)}
+.date{padding:0;text-align:right;font-size:19px;color:var(--amarillo);text-shadow:0 1px 4px rgba(0,0,0,0.6)}
 .date strong{font-weight:bold}
-.institution{margin-top:28px;padding:0;text-align:right;font-size:17px;line-height:1.5}
+.institution{margin-top:28px;padding:0;text-align:right;font-size:17px;line-height:1.5;text-shadow:0 1px 4px rgba(0,0,0,0.6)}
 .institution strong{display:block;color:#fff}
 .institution span{display:block;opacity:.9}
 
-.scroll{margin-top:40px;animation:bounce 2s infinite;opacity:.85}
+.scroll{margin-top:40px;animation:bounce 2s infinite;opacity:.9;text-shadow:0 2px 5px rgba(0,0,0,0.6);font-weight:bold}
 section{max-width:1100px;margin:0 auto;padding:65px 24px 40px;min-height:70vh;opacity:0;transform:translateY(55px);transition:opacity .8s ease,transform .8s ease}
 section.visible{opacity:1;transform:translateY(0)}
 .section-number{display:inline-block;background:var(--amarillo);color:#172033;font-weight:bold;border-radius:30px;padding:6px 15px}
@@ -84,9 +115,9 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  .arrow{transform:rotate(90deg)}
  
  /* Solución a los datos de la portada */
+ .cover-details{padding:22px 20px; margin-top:35px}
  .cover-row{flex-direction:column; gap:20px; align-items:flex-start}
- .cover-details{padding-left:14px;padding-right:14px}
- .members{padding-left:10px}
+ .members{padding-left:12px}
  .date{padding-right:0; text-align:left; color:var(--amarillo)}
  .institution{text-align:left; margin-top:20px}
 }
@@ -190,7 +221,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card material"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
 <div class="card material"><div class="icon">👁️</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
-<div class="card material"><div class="icon">⚙️️</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
+<div class="card material"><div class="icon">⚙️</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
 <div class="card material"><div class="icon">🔴</div><h3>Resistencias</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
 <div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
