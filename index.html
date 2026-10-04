@@ -53,7 +53,15 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-.sun{font-size:80px;display:block;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6));margin-bottom:15px}
+/* Imagen del sol en lugar del emoji */
+.sun{
+  width:120px;
+  height:auto;
+  display:block;
+  margin:0 auto 15px auto;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+}
 
 /* Líneas amarillas de punta a punta */
 .hero .title-line{
@@ -113,6 +121,8 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  section{padding-top:90px}
  h2{font-size:31px}
  
+ .sun{width:95px}
+ 
  /* Diagrama de flujo en columna para celular */
  .flow {flex-direction: column; gap: 10px;}
  .arrow{transform:rotate(90deg)}
@@ -137,7 +147,9 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 
 <header class="hero" id="portada">
 <div class="hero-content">
-<span class="sun">☀️</span>
+
+<!-- Sol guardado como imagen -->
+<img src="sol.png" alt="Sol" class="sun">
 
 <!-- Línea superior -->
 <div class="title-line"></div>
