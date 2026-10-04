@@ -133,6 +133,19 @@ h3{color:var(--azul2);font-size:23px}
 .card{background:#fff;border-radius:18px;padding:25px;box-shadow:0 7px 25px #092b4c12;border:1px solid #e5edf3;transition:transform .3s,box-shadow .3s}
 .card:hover{transform:translateY(-8px);box-shadow:0 14px 32px #092b4c22}
 .icon{font-size:42px}
+
+/* Tarjeta especial con el GIF animado como fondo */
+.card-solar-bg{
+  position:relative;
+  background-image: linear-gradient(rgba(9, 43, 76, 0.78), rgba(9, 43, 76, 0.88)), url("Solar Energy Animation GIF by xponentialdesign_2.jpg");
+  background-size: cover;
+  background-position: center;
+  color:#fff;
+  border:none;
+}
+.card-solar-bg h3{color:var(--amarillo);}
+.card-solar-bg p{color:#f0f4f8;}
+
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b}
 .flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:35px 0}
 .step{background:#fff;padding:18px;border-radius:16px;box-shadow:0 5px 18px #0001;text-align:center;min-width:145px;transition:.3s}
@@ -267,7 +280,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <p class="lead">El sistema detecta diferencias de iluminación y utiliza esa información para decidir hacia qué lado debe moverse el panel.</p>
 
 <div class="flow">
-<div class="step"><div class="icon">☀️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
+<div class="step"><div class="icon">☀️️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
 <div class="arrow">→</div>
 <div class="step"><div class="icon">👁</div><strong>LDR</strong><br>Detectan la luz</div>
 <div class="arrow">→</div>
@@ -294,7 +307,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
 <div class="card-grid">
-<div class="card material"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
+<div class="card material card-solar-bg"><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
 <div class="card material"><div class="icon">👁</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
 <div class="card material"><div class="icon">⚙</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
