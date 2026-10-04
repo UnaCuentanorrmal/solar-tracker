@@ -52,7 +52,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-/* Imagen sol.png con animación combinada */
+/* Sol con resplandor/contorno blanco luminoso y transparente */
 .sun{
   width:130px;
   height:130px;
@@ -62,7 +62,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   border-radius:50%;
   mix-blend-mode:multiply;
   animation: spin-float 8s linear infinite;
-  filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.75)) drop-shadow(0 4px 12px rgba(0,0,0,0.6));
 }
 
 .hero .title-line{
@@ -92,7 +92,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .institution strong{display:block;color:#fff}
 .institution span{display:block;color:#fff;opacity:.95}
 
-/* Estilo para la flecha indicadora de desplazamiento */
+/* Flecha con resplandor y contorno luminoso semitransparente */
 .scroll{
   margin-top:35px;
   font-size:38px;
@@ -101,7 +101,10 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   color:var(--amarillo);
   animation:bounce 2s infinite;
   opacity:.95;
-  text-shadow:0 2px 10px rgba(0,0,0,0.9);
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.4),
+    0 2px 10px rgba(0,0,0,0.9);
 }
 
 section{max-width:1100px;margin:0 auto;padding:65px 24px 40px;min-height:70vh;opacity:0;transform:translateY(55px);transition:opacity .8s ease,transform .8s ease}
@@ -210,7 +213,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 </div>
 
 <div class="card-grid">
-<div class="card"><div class="icon">☀️️</div><h3>¿Qué es?</h3><p>Es un sistema que modifica la orientación de un panel para seguir la dirección de mayor iluminación.</p></div>
+<div class="card"><div class="icon">☀️</div><h3>¿Qué es?</h3><p>Es un sistema que modifica la orientación de un panel para seguir la dirección de mayor iluminación.</p></div>
 <div class="card"><div class="icon">🌱</div><h3>¿Por qué hacerlo?</h3><p>Permite estudiar una aplicación práctica de las energías renovables y la automatización.</p></div>
 <div class="card"><div class="icon">🎯</div><h3>Objetivo</h3><p>Construir un prototipo funcional que detecte la luz y ajuste la posición del panel automáticamente.</p></div>
 </div>
