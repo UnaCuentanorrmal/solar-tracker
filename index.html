@@ -144,7 +144,7 @@ h3{color:var(--azul2);font-size:23px}
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.45)), 
     url("Solar Energy Animation GIF by xponentialdesign.gif");
-  background-size: 1800px auto; /* Aumentado para mayor amplitud horizontal */
+  background-size: 1800px auto; 
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
@@ -163,7 +163,7 @@ h3{color:var(--azul2);font-size:23px}
 #materiales .card p { color: var(--texto); }
 /* ======================================================== */
 
-.problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b}
+.problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:25px;}
 .flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:35px 0}
 .step{background:#fff;padding:18px;border-radius:16px;box-shadow:0 5px 18px #0001;text-align:center;min-width:145px;transition:.3s}
 .step:hover{transform:scale(1.05)}
@@ -275,18 +275,19 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <section id="introduccion">
 <span class="section-number">01</span>
 <h2>Introducción</h2>
-<p class="lead">El proyecto Solar Tracker consiste en desarrollar un sistema capaz de orientar automáticamente un panel solar hacia la zona donde existe mayor iluminación.</p>
-<p>Un seguidor solar combina sensores, electrónica, programación y un mecanismo de movimiento. Su objetivo es evitar que el panel permanezca fijo mientras cambia la posición aparente del Sol durante el día.</p>
+<p class="lead">El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</strong> (seguidor solar), un sistema automatizado que utiliza sensores de luz para orientar un panel fotovoltaico hacia la zona de mayor iluminación.</p>
+
+<p>Los sistemas fotovoltaicos convencionales transforman la luz en electricidad, pero al estar fijos suelen perder eficiencia cuando la posición del Sol cambia a lo largo del día. Para solucionar este desalineamiento, nuestro prototipo emplea una placa <strong>Arduino Nano</strong>, sensores LDR y servomotores que ajustan dinámicamente la posición del panel.</p>
 
 <div class="problem">
-<h3>🔎 Problemática</h3>
-<p>Un panel solar instalado en una posición fija no mantiene durante todo el día el mismo ángulo respecto de la luz solar. Esto puede reducir el aprovechamiento de la radiación que recibe. Frente a esta problemática, nuestro proyecto propone automatizar la orientación del panel mediante sensores de luz y un servomotor.</p>
+<h3>💡 Desarrollo y Valor Educativo</h3>
+<p>Durante su creación, el proyecto integró conocimientos de electricidad, electrónica, programación y fabricación mecánica (incluyendo impresión 3D). Un reto superado en las pruebas fue corregir el ángulo de los servomotores, ajustándolos de 360° a 180° para lograr un funcionamiento normal. Su valor principal radica en integrar control automático y energía renovable en un prototipo funcional a escala educativa.</p>
 </div>
 
 <div class="card-grid">
-<div class="card"><div class="icon">☀️</div><h3>¿Qué es?</h3><p>Es un sistema que modifica la orientación de un panel para seguir la dirección de mayor iluminación.</p></div>
-<div class="card"><div class="icon">🌱</div><h3>¿Por qué hacerlo?</h3><p>Permite estudiar una aplicación práctica de las energías renovables y la automatización.</p></div>
-<div class="card"><div class="icon">🎯</div><h3>Objetivo</h3><p>Construir un prototipo funcional que detecte la luz y ajuste la posición del panel automáticamente.</p></div>
+<div class="card"><div class="icon">☀️</div><h3>Propósito</h3><p>Optimizar la captación de energía reduciendo el desalineamiento respecto a la luz solar.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>Tecnología</h3><p>Control automatizado mediante Arduino Nano, sensores de luz y servomotores.</p></div>
+<div class="card"><div class="icon">🎓</div><h3>Aprendizaje</h3><p>Integración práctica de electrónica, programación y diseño mecánico.</p></div>
 </div>
 </section>
 
@@ -312,7 +313,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card"><strong>1. Detectar</strong><p>Los LDR reciben la iluminación del entorno.</p></div>
 <div class="card"><strong>2. Comparar</strong><p>Arduino Nano compara los valores obtenidos por los sensores.</p></div>
 <div class="card"><strong>3. Decidir</strong><p>Si existe una diferencia, el programa determina hacia qué lado debe corregirse la posición.</p></div>
-<div class="card"><strong>4. Mover</strong><p>El SG90 gira el soporte del panel hacia la dirección indicada.</p></div>
+<div class="card"><strong>4. Mover</strong><p>El servo gira el soporte del panel hacia la dirección indicada.</p></div>
 <div class="card"><strong>5. Repetir</strong><p>El sistema vuelve a medir para mantener el panel orientado mientras cambia la iluminación.</p></div>
 </div>
 </section>
@@ -325,12 +326,12 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card-grid">
 <div class="card material"><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
-<div class="card material"><div class="icon">👁</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
-<div class="card material"><div class="icon">⚙</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
-<div class="card material"><div class="icon">🔴</div><h3>Resistencias</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
+<div class="card material"><div class="icon">👁</div><h3>LDR (x4 5528)</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
+<div class="card material"><div class="icon">⚙</div><h3>Servomotores de 180°</h3><p>Permiten modificar de forma controlada el ángulo del mecanismo.</p></div>
+<div class="card material"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
 <div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
-<div class="card material"><div class="icon">🏗️</div><h3>Estructura del prototipo</h3><p>Sostiene el panel y permite que el mecanismo pueda cambiar su orientación.</p></div>
+<div class="card material"><div class="icon">🏗️</div><h3>Estructura 3D</h3><p>Piezas impresas y soporte que sostienen el panel y permiten su movimiento.</p></div>
 </div>
 </section>
 
