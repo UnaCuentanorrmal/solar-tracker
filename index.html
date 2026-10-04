@@ -21,7 +21,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(0);tran
 nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 10px;padding:7px 10px;border-radius:8px;transition:.25s}
 nav a:hover{background:#ffffff22;color:var(--amarillo)}
 
-/* Hero con fondo transparente y sombra suave */
 .hero{
   min-height:100vh;
   display:flex;
@@ -53,17 +52,16 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
   z-index:1;
 }
 
-/* Imagen del sol en lugar del emoji */
+/* Imagen sol.png con animación de rotación continua */
 .sun{
-  width:120px;
+  width:130px;
   height:auto;
   display:block;
   margin:0 auto 15px auto;
-  animation:float 4s ease-in-out infinite;
+  animation: spin 16s linear infinite;
   filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6));
 }
 
-/* Líneas amarillas de punta a punta */
 .hero .title-line{
   height:4px;
   width:92%;
@@ -78,9 +76,8 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 .hero h2{font-size:clamp(20px,3vw,30px);font-weight:normal;margin:20px 0 28px;color:#ffffff;text-shadow:0 2px 10px rgba(0,0,0,0.9), 0 0 12px rgba(0,0,0,0.8)}
 .hero p{font-size:18px;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.9)}
 
-/* Estructura limpia de la portada */
 .cover-details{width:100%;max-width:none;margin:65px auto 0;text-align:left;padding:0 22px}
-.cover-row{display:flex;justify-content:space-between;align-items:flex-start;width:100%}
+.cover-row{display:flex;justify-style:space-between;align-items:flex-start;width:100%}
 
 .members{padding:0 0 0 14px;border-left:3px solid var(--amarillo);font-size:16px;line-height:1.6;color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.95), 0 0 12px rgba(0,0,0,0.9)}
 .members strong{display:block;font-size:19px;margin-bottom:7px;color:var(--amarillo);text-shadow:0 2px 8px rgba(0,0,0,0.95)}
@@ -111,23 +108,22 @@ h3{color:var(--azul2);font-size:23px}
 .arrow{font-size:27px;color:var(--celeste)}
 .material{min-height:190px}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* Animaciones */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
 
-/* Adaptación exclusiva para celular (pantallas <= 650px) */
 @media(max-width:650px){
  nav{overflow-x:auto;white-space:nowrap;text-align:left;padding-bottom:12px}
  nav a{display:inline-block;margin:0 3px;font-size:14px}
  section{padding-top:90px}
  h2{font-size:31px}
- 
- .sun{width:95px}
- 
- /* Diagrama de flujo en columna para celular */
+ .sun{width:100px}
  .flow {flex-direction: column; gap: 10px;}
  .arrow{transform:rotate(90deg)}
- 
- /* Apilado ordenado para portada en celular */
  .cover-row{flex-direction:column; gap:18px; align-items:flex-start}
  .cover-details{padding-left:14px; padding-right:14px; margin-top:45px}
  .members{padding-left:12px}
@@ -148,15 +144,11 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <header class="hero" id="portada">
 <div class="hero-content">
 
-<!-- Sol guardado como imagen -->
+<!-- Sol con sol.png -->
 <img src="sol.png" alt="Sol" class="sun">
 
-<!-- Línea superior -->
 <div class="title-line"></div>
-
 <h1>Solar Tracker</h1>
-
-<!-- Línea inferior -->
 <div class="title-line"></div>
 
 <h2>Sistema de seguimiento solar automático</h2>
@@ -242,7 +234,7 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 <div class="card-grid">
 <div class="card material"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
 <div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
-<div class="card material"><div class="icon">👁️</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
+<div class="card material"><div class="icon">👁️️</div><h3>LDR</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
 <div class="card material"><div class="icon">⚙</div><h3>Servomotor SG90</h3><p>Permite modificar de forma controlada el ángulo del panel.</p></div>
 <div class="card material"><div class="icon">🔴</div><h3>Resistencias</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
 <div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
