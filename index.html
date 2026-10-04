@@ -38,7 +38,7 @@ nav a:hover{background:#ffffff22;color:var(--amarillo)}
 }
 .hero:before,.hero:after{display:none}
 
-/* Insignia / Logo del colegio ubicado en la esquina superior izquierda (Bajada y con su tamaño original) */
+/* Insignia / Logo del colegio ubicado en la esquina superior izquierda */
 .school-logo{
   position:absolute;
   top:50px;
@@ -133,7 +133,7 @@ h3{color:var(--azul2);font-size:23px}
 .icon{font-size:42px}
 
 /* ======================================================== */
-/* SECCIÓN INTRODUCCIÓN (FONDO NEGRO PURO Y PUNTOS VISIBLES) */
+/* SECCIÓN INTRODUCCIÓN (PUNTOS VISIBLES CON FONDO OSCURO)    */
 /* ======================================================== */
 #introduccion {
   max-width: 100% !important;
@@ -141,12 +141,13 @@ h3{color:var(--azul2);font-size:23px}
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
+  background-color: #0d0d0d;
   background-image: 
-    linear-gradient(rgba(14, 14, 14, 0.94), rgba(14, 14, 14, 0.96)), 
+    linear-gradient(rgba(13, 13, 13, 0.45), rgba(13, 13, 13, 0.65)), 
     url("fondo_2.gif");
-  background-size: 1800px auto; 
+  background-size: 1600px auto; 
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   color: #fff;
   border-radius: 0;
 }
@@ -161,7 +162,7 @@ h3{color:var(--azul2);font-size:23px}
 #introduccion .problem h3 { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN CÓMO FUNCIONA (FONDO NEGRO PURO Y PUNTOS VISIBLES)*/
+/* SECCIÓN CÓMO FUNCIONA (PUNTOS VISIBLES CON FONDO OSCURO)   */
 /* ======================================================== */
 #funcionamiento {
   max-width: 100% !important;
@@ -169,12 +170,13 @@ h3{color:var(--azul2);font-size:23px}
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
+  background-color: #0d0d0d;
   background-image: 
-    linear-gradient(rgba(14, 14, 14, 0.94), rgba(14, 14, 14, 0.96)), 
+    linear-gradient(rgba(13, 13, 13, 0.45), rgba(13, 13, 13, 0.65)), 
     url("fondo_2.gif");
-  background-size: 1800px auto; 
+  background-size: 1600px auto; 
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   color: #fff;
   border-radius: 0;
 }
@@ -182,7 +184,7 @@ h3{color:var(--azul2);font-size:23px}
 #funcionamiento h3 { color: var(--celeste); }
 #funcionamiento p { color: #f0f4f8; }
 #funcionamiento .step, #funcionamiento .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
 }
@@ -347,7 +349,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <p class="lead">El sistema detecta diferencias de iluminación y utiliza esa información para decidir hacia qué lado debe moverse el panel.</p>
 
 <div class="flow">
-<div class="step"><div class="icon">☀️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
+<div class="step"><div class="icon">☀️️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
 <div class="arrow">→</div>
 <div class="step"><div class="icon">👁</div><strong>LDR</strong><br>Detectan la luz</div>
 <div class="arrow">→</div>
