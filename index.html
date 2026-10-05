@@ -34,7 +34,6 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);col
 }
 .hero:before,.hero:after{display:none}
 
-/* Insignia / Logo del colegio ubicado en la esquina superior izquierda */
 .school-logo{
   position:absolute;
   top:50px;
@@ -60,7 +59,6 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);col
   z-index:1;
 }
 
-/* Sol con resplandor luminoso */
 .sun{
   width:130px;
   height:130px;
@@ -184,7 +182,6 @@ h3{color:var(--azul2);font-size:23px}
 #funcionamiento h3 { color: var(--celeste); }
 #funcionamiento p { color: #f0f4f8; }
 
-/* Estilo compacto y minimalista para el flujo */
 .flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px;margin:25px 0}
 .step{
   background: rgba(255, 255, 255, 0.05);
@@ -201,9 +198,8 @@ h3{color:var(--azul2);font-size:23px}
 .step .icon{font-size: 28px; margin-bottom: 4px;}
 .step strong{color: var(--amarillo); font-size: 14.5px; display: block; margin-bottom: 3px;}
 .step span{font-size: 12.5px; color: #d0dbe5; line-height: 1.35; display: block;}
-.arrow{display:none} /* Ocultamos flechas grandes para un diseño más limpio tipo minimalista */
+.arrow{display:none}
 
-/* Cuadrícula de pasos compacto */
 #funcionamiento .card-grid {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 14px;
@@ -245,13 +241,32 @@ h3{color:var(--azul2);font-size:23px}
 #materiales .card {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-#materiales .card h3 { color: var(--azul); }
-#materiales .card p { color: var(--texto); }
+#materiales .card h3 { color: var(--azul); margin: 0; font-size: 19px; }
+
 /* ======================================================== */
+/* SECCIÓN CONCLUSIÓN                                       */
+/* ======================================================== */
+#conclusion {
+  max-width: 100% !important;
+  width: 100%;
+  padding-top: 40px;
+  padding-left: max(24px, calc((100% - 1100px) / 2));
+  padding-right: max(24px, calc((100% - 1100px) / 2));
+  position: relative;
+  background-color: #0d0d0d;
+  color: #fff;
+  border-radius: 0;
+  margin-top: -1px;
+}
+#conclusion h2 { color: var(--amarillo); }
+#conclusion p.lead { color: #f0f4f8; max-width: 900px; }
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
-.material{min-height:190px}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
 
 @keyframes spin-float {
@@ -264,7 +279,6 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 
-/* VISTA DE CELULAR EXCLUSIVA */
 @media(max-width:650px){
  body { font-size: 14.5px; }
  
@@ -385,14 +399,14 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
 <div class="card-grid">
-<div class="card material"><h3>Panel solar de 5 V / 200 mA</h3><p>Capta la radiación solar y la transforma en energía eléctrica.</p></div>
-<div class="card material"><div class="icon">🧠</div><h3>Arduino Nano</h3><p>Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.</p></div>
-<div class="card material"><div class="icon">👁</div><h3>LDR (x4 5528)</h3><p>Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.</p></div>
-<div class="card material"><div class="icon">⚙</div><h3>Servomotores de 180°</h3><p>Permiten modificar de forma controlada el ángulo del mecanismo.</p></div>
-<div class="card material"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3><p>Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.</p></div>
-<div class="card material"><div class="icon">🧩</div><h3>Protoboard</h3><p>Permite montar y probar las conexiones del circuito sin realizar soldaduras.</p></div>
-<div class="card material"><div class="icon">🔗</div><h3>Cables Dupont</h3><p>Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.</p></div>
-<div class="card material"><div class="icon">🏗️</div><h3>Estructura 3D</h3><p>Piezas impresas y soporte que sostienen el panel y permiten su movimiento.</p></div>
+<div class="card"><h3>Panel solar de 5 V / 200 mA</h3></div>
+<div class="card"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
+<div class="card"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
+<div class="card"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
+<div class="card"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
+<div class="card"><div class="icon">🧩</div><h3>Protoboard</h3></div>
+<div class="card"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
+<div class="card"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
 </div>
 </section>
 
@@ -400,12 +414,6 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <span class="section-number">04</span>
 <h2>Conclusión</h2>
 <p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
-
-<div class="card-grid">
-<div class="card"><div class="icon">📈</div><h3>Mayor Eficiencia</h3><p>Al ajustar la posición del panel constantemente según la luz, se logra captar una mayor cantidad de energía en comparación con una instalación estática.</p></div>
-<div class="card"><div class="icon">🛠️</div><h3>Aprendizaje Técnico</h3><p>La integración de programación en Arduino, electrónica y mecánica fortalece habilidades clave en el desarrollo de soluciones tecnológicas.</p></div>
-<div class="card"><div class="icon">🌍</div><h3>Visión Sustentable</h3><p>Permite comprender y proponer mejoras reales para el aprovechamiento de las energías limpias, contribuyendo al cuidado del medio ambiente.</p></div>
-</div>
 </section>
 </main>
 
