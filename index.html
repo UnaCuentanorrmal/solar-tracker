@@ -16,10 +16,6 @@
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7;overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;transform:translateY(0);transition:transform .35s ease;background:rgba(9,43,76,.92);backdrop-filter:blur(12px);padding:12px 20px;text-align:center;box-shadow:0 3px 18px #0003}
-.nav-hidden{transform:translateY(-110%) !important}
-nav a{color:#fff;text-decoration:none;font-weight:bold;margin:0 10px;padding:7px 10px;border-radius:8px;transition:.25s}
-nav a:hover{background:#ffffff22;color:var(--amarillo)}
 
 .hero{
   min-height:100vh;
@@ -133,7 +129,7 @@ h3{color:var(--azul2);font-size:23px}
 .icon{font-size:42px}
 
 /* ======================================================== */
-/* SECCIÓN INTRODUCCIÓN (FONDO UNIFICADO Y SIN CORTES)      */
+/* SECCIÓN INTRODUCCIÓN                                     */
 /* ======================================================== */
 #introduccion {
   max-width: 100% !important;
@@ -164,7 +160,7 @@ h3{color:var(--azul2);font-size:23px}
 #introduccion .problem h3 { color: var(--amarillo); }
 
 /* ======================================================== */
-/* SECCIÓN CÓMO FUNCIONA (FONDO UNIFICADO Y SIN CORTES)     */
+/* SECCIÓN CÓMO FUNCIONA & PASO A PASO MINIMALISTA           */
 /* ======================================================== */
 #funcionamiento {
   max-width: 100% !important;
@@ -187,12 +183,41 @@ h3{color:var(--azul2);font-size:23px}
 #funcionamiento h2 { color: var(--amarillo); }
 #funcionamiento h3 { color: var(--celeste); }
 #funcionamiento p { color: #f0f4f8; }
-#funcionamiento .step, #funcionamiento .card {
-  background: rgba(255, 255, 255, 0.06);
+
+/* Estilo compacto y minimalista para el flujo */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:10px;margin:25px 0}
+.step{
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 14px 16px;
+  border-radius: 12px;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  max-width: 190px;
+  transition: transform .25s ease, background .25s ease;
+}
+.step:hover{transform: translateY(-4px); background: rgba(255, 255, 255, 0.09);}
+.step .icon{font-size: 28px; margin-bottom: 4px;}
+.step strong{color: var(--amarillo); font-size: 14.5px; display: block; margin-bottom: 3px;}
+.step span{font-size: 12.5px; color: #d0dbe5; line-height: 1.35; display: block;}
+.arrow{display:none} /* Ocultamos flechas grandes para un diseño más limpio tipo minimalista */
+
+/* Cuadrícula de pasos compacto */
+#funcionamiento .card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+#funcionamiento .card {
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #fff;
+  padding: 18px;
+  border-radius: 12px;
 }
-#funcionamiento .card strong { color: var(--amarillo); }
+#funcionamiento .card strong { color: var(--amarillo); font-size: 15px; display: block; margin-bottom: 6px; }
+#funcionamiento .card p { font-size: 13.5px; margin: 0; color: #d0dbe5; }
 
 /* ======================================================== */
 /* SECCIÓN MATERIALES                                       */
@@ -226,10 +251,6 @@ h3{color:var(--azul2);font-size:23px}
 /* ======================================================== */
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
-.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin:35px 0}
-.step{background:#fff;padding:18px;border-radius:16px;box-shadow:0 5px 18px #0001;text-align:center;min-width:145px;transition:.3s}
-.step:hover{transform:scale(1.05)}
-.arrow{font-size:27px;color:var(--celeste)}
 .material{min-height:190px}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
 
@@ -246,8 +267,6 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
 /* VISTA DE CELULAR EXCLUSIVA */
 @media(max-width:650px){
  body { font-size: 14.5px; }
- nav{overflow-x:auto;white-space:nowrap;text-align:left;padding:10px 15px}
- nav a{display:inline-block;margin:0 2px;font-size:12.5px; padding:6px 8px;}
  
  .hero { 
    align-items: flex-start; 
@@ -282,21 +301,12 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  .card { padding: 22px; border-radius: 15px; }
  .icon { font-size: 36px; }
  
- .flow { flex-direction: column; gap: 8px; margin: 25px 0;}
- .step { padding: 15px; min-width: 130px; border-radius: 14px; }
- .arrow { transform: rotate(90deg); font-size: 24px; }
+ .flow { flex-direction: column; gap: 8px; margin: 20px 0;}
+ .step { max-width: 100%; padding: 12px; }
 }
 </style>
 </head>
 <body>
-
-<nav>
-<a href="#portada">0. Portada</a>
-<a href="#introduccion">1. Introducción</a>
-<a href="#funcionamiento">2. Cómo funciona</a>
-<a href="#materiales">3. Materiales</a>
-<a href="#conclusion">4. Conclusión</a>
-</nav>
 
 <header class="hero" id="portada">
 <img src="insignia calama.png" alt="Insignia Don Bosco Calama" class="school-logo">
@@ -350,27 +360,22 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <section id="funcionamiento">
 <span class="section-number">02</span>
 <h2>¿Cómo funciona?</h2>
-<p class="lead">El sistema detecta diferencias de iluminación y utiliza esa información para decidir hacia qué lado debe moverse el panel.</p>
+<p class="lead">El sistema detecta diferencias de luz ambiental para orientar automáticamente el panel fotovoltaico.</p>
 
 <div class="flow">
-<div class="step"><div class="icon">☀️</div><strong>Luz solar</strong><br>Ilumina los sensores</div>
-<div class="arrow">→</div>
-<div class="step"><div class="icon">👁</div><strong>LDR</strong><br>Detectan la luz</div>
-<div class="arrow">→</div>
-<div class="step"><div class="icon">🧠</div><strong>Arduino Nano</strong><br>Compara las lecturas</div>
-<div class="arrow">→</div>
-<div class="step"><div class="icon">⚙</div><strong>Servo SG90</strong><br>Mueve el panel</div>
-<div class="arrow">→</div>
-<div class="step"><div class="icon">🔆</div><strong>Panel</strong><br>Se orienta</div>
+<div class="step"><div class="icon">☀️</div><strong>1. Detectar</strong><span>Los LDR captan la luz solar ambiental.</span></div>
+<div class="step"><div class="icon">🧠</div><strong>2. Comparar</strong><span>Arduino procesa y contrasta las lecturas.</span></div>
+<div class="step"><div class="icon">⚡</div><strong>3. Decidir</strong><span>Calcula la dirección de mayor brillo.</span></div>
+<div class="step"><div class="icon">⚙️</div><strong>4. Mover</strong><span>El servo ajusta el ángulo del panel.</span></div>
+<div class="step"><div class="icon">🔄</div><strong>5. Repetir</strong><span>Monitorea continuamente la posición.</span></div>
 </div>
 
-<h3>Funcionamiento paso a paso</h3>
+<h3>Esquema lógico del proceso</h3>
 <div class="card-grid">
-<div class="card"><strong>1. Detectar</strong><p>Los LDR reciben la iluminación del entorno.</p></div>
-<div class="card"><strong>2. Comparar</strong><p>Arduino Nano compara los valores obtenidos por los sensores.</p></div>
-<div class="card"><strong>3. Decidir</strong><p>Si existe una diferencia, el programa determines hacia qué lado debe corregirse la posición.</p></div>
-<div class="card"><strong>4. Mover</strong><p>El servo gira el soporte del panel hacia la dirección indicada.</p></div>
-<div class="card"><strong>5. Repetir</strong><p>El sistema vuelve a medir para mantener el panel orientado mientras cambia la iluminación.</p></div>
+<div class="card"><strong>Sensores LDR</strong><p>Cuatro fotoresistencias miden la intensidad lumínica en distintos puntos.</p></div>
+<div class="card"><strong>Procesamiento</strong><p>Arduino Nano analiza los voltajes y determina desequilibrios de luz.</p></div>
+<div class="card"><strong>Accionamiento</strong><p>El servomotor corrige el ángulo con precisión milimétrica.</p></div>
+<div class="card"><strong>Optimización</strong><p>Garantiza la máxima captación de energía durante todo el día.</p></div>
 </div>
 </section>
 
@@ -418,31 +423,6 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.12});
 sections.forEach(section=>observer.observe(section));
-
-const nav=document.querySelector("nav");
-let lastScrollY=window.scrollY;
-let ticking=false;
-
-window.addEventListener("scroll",()=>{
-  if(ticking) return;
-  window.requestAnimationFrame(()=>{
-    const current=window.scrollY;
-
-    if(current > lastScrollY && current > 80){
-      nav.classList.add("nav-hidden");
-    }else if(current < lastScrollY){
-      nav.classList.remove("nav-hidden");
-    }
-
-    if(current <= 20){
-      nav.classList.remove("nav-hidden");
-    }
-
-    lastScrollY=current;
-    ticking=false;
-  });
-  ticking=true;
-},{passive:true});
 </script>
 </body>
 </html>
