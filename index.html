@@ -221,6 +221,7 @@ h3{color:var(--azul2);font-size:23px}
 #materiales {
   max-width: 100% !important;
   width: 100%;
+  min-height: 85vh; /* Amplía el espacio vertical de la sección para separar la conclusión */
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
@@ -244,7 +245,6 @@ h3{color:var(--azul2);font-size:23px}
   min-height: 150px;
   display: flex;
   flex-direction: column;
-  /* Centrado horizontal y empujado hacia la parte superior */
   align-items: center;
   justify-content: flex-start;
   padding-top: 35px;
@@ -257,7 +257,6 @@ h3{color:var(--azul2);font-size:23px}
   font-size: 18px; 
   text-align: center;
 }
-/* Indicador visual de que son clickeables */
 #materiales .card::after {
   content: "Clic para leer más";
   position: absolute;
@@ -323,25 +322,31 @@ h3{color:var(--azul2);font-size:23px}
 .modal-content p { font-size: 17px; line-height: 1.6; margin: 0; }
 
 /* ======================================================== */
-/* SECCIÓN CONCLUSIÓN                                       */
+/* SECCIÓN CONCLUSIÓN (Empujada hacia abajo con flexbox)    */
 /* ======================================================== */
+#materiales-conclusion-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 #conclusion {
   max-width: 100% !important;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
   color: #fff;
   border-radius: 0;
-  margin-top: -1px;
+  margin-top: auto; /* Empuja la conclusión al fondo absoluto de la sección de fondo oscuro */
 }
 #conclusion h2 { color: var(--amarillo); }
 #conclusion p.lead { color: #f0f4f8; max-width: 900px; }
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
-footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:50px}
+footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:0px}
 
 @keyframes spin-float {
   0% { transform: translateY(0) rotate(0deg); }
@@ -462,29 +467,31 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 </div>
 </section>
 
-<section id="materiales">
-<span class="section-number">03</span>
-<h2>Materiales</h2>
-<p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
+<div id="materiales-conclusion-wrapper">
+  <section id="materiales">
+  <span class="section-number">03</span>
+  <h2>Materiales</h2>
+  <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
-<!-- Aquí se añaden las funciones de clic enviando icono, titulo y descripción -->
-<div class="card-grid">
-<div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3></div>
-<div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
-<div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
-<div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
-<div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
-<div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><div class="icon">🧩</div><h3>Protoboard</h3></div>
-<div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
-<div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
+  <div class="card-grid">
+  <div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3></div>
+  <div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
+  <div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
+  <div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
+  <div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
+  <div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><div class="icon">🧩</div><h3>Protoboard</h3></div>
+  <div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
+  <div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
+  </div>
+  </section>
+
+  <section id="conclusion">
+  <span class="section-number">04</span>
+  <h2>Conclusión</h2>
+  <p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
+  </section>
 </div>
-</section>
 
-<section id="conclusion">
-<span class="section-number">04</span>
-<h2>Conclusión</h2>
-<p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
-</section>
 </main>
 
 <footer>
@@ -522,7 +529,6 @@ function abrirModal(icono, titulo, descripcion) {
   const modal = document.getElementById('modalMaterial');
   modal.style.display = 'flex';
   
-  // Un ligero retraso permite que la transición CSS de opacidad y escala funcione
   setTimeout(() => {
     modal.classList.add('show');
   }, 10);
@@ -532,13 +538,11 @@ function cerrarModal() {
   const modal = document.getElementById('modalMaterial');
   modal.classList.remove('show');
   
-  // Espera a que termine la animación antes de ocultar el elemento
   setTimeout(() => {
     modal.style.display = 'none';
   }, 300);
 }
 
-// Cerrar el modal al hacer clic en el fondo oscuro (fuera de la tarjeta)
 window.onclick = function(event) {
   const modal = document.getElementById('modalMaterial');
   if (event.target == modal) {
