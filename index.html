@@ -15,7 +15,7 @@
   --blanco:#fff;
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);color:var(--texto);line-height:1.7;overflow-x:hidden}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0d0d0d;color:var(--texto);line-height:1.7;overflow-x:hidden}
 
 .hero{
   min-height:100vh;
@@ -32,7 +32,6 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fondo);col
   background-position:center;
   background-repeat:no-repeat;
 }
-.hero:before,.hero:after{display:none}
 
 .school-logo{
   position:absolute;
@@ -232,6 +231,7 @@ h3{color:var(--azul2);font-size:23px}
   background-repeat: no-repeat;
   color: #fff;
   border-radius: 0;
+  margin-top: -1px;
 }
 
 #materiales h2 { color: var(--amarillo); text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
@@ -325,36 +325,30 @@ h3{color:var(--azul2);font-size:23px}
 /* ======================================================== */
 .section-divider {
   width: 100%;
-  max-width: 1100px;
-  height: 8px; /* Altura más chica */
-  margin: 0 auto;
-  background: linear-gradient(90deg, transparent, #888888, transparent); /* Color más gris */
+  height: 4px; /* Altura más chica */
+  margin: 0;
+  background: linear-gradient(90deg, transparent, #777777, transparent); /* Color gris más perceptible */
   opacity: 0.95; /* 95% sólido / 5% transparente */
   border: none;
-  z-index: 5;
+  z-index: 10;
   position: relative;
 }
 
 /* ======================================================== */
-/* SECCIÓN CONCLUSIÓN (Empujada hacia abajo)                */
+/* SECCIÓN CONCLUSIÓN                                       */
 /* ======================================================== */
-#materiales-conclusion-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
 #conclusion {
   max-width: 100% !important;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
   color: #fff;
   border-radius: 0;
-  margin-top: auto; 
+  margin-top: -1px;
 }
 #conclusion h2 { color: var(--amarillo); }
 #conclusion p.lead { color: #f0f4f8; max-width: 900px; }
@@ -484,36 +478,34 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 </div>
 </section>
 
-<!-- Línea de difuminado entre Cómo funciona y Materiales -->
+<!-- Línea de difuminado entre ¿Cómo funciona? y Materiales -->
 <hr class="section-divider">
 
-<div id="materiales-conclusion-wrapper">
-  <section id="materiales">
-  <span class="section-number">03</span>
-  <h2>Materiales</h2>
-  <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
+<section id="materiales">
+<span class="section-number">03</span>
+<h2>Materiales</h2>
+<p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
-  <div class="card-grid">
-  <div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀️️</div><h3>Panel solar de 5 V / 200 mA</h3></div>
-  <div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
-  <div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
-  <div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
-  <div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
-  <div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><div class="icon">🧩</div><h3>Protoboard</h3></div>
-  <div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
-  <div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
-  </div>
-  </section>
-
-  <!-- Línea de difuminado entre Materiales y Conclusión -->
-  <hr class="section-divider">
-
-  <section id="conclusion">
-  <span class="section-number">04</span>
-  <h2>Conclusión</h2>
-  <p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
-  </section>
+<div class="card-grid">
+<div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀</div><h3>Panel solar de 5 V / 200 mA</h3></div>
+<div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
+<div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
+<div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
+<div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
+<div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><div class="icon">🧩</div><h3>Protoboard</h3></div>
+<div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
+<div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
 </div>
+</section>
+
+<!-- Línea de difuminado entre Materiales y Conclusión -->
+<hr class="section-divider">
+
+<section id="conclusion">
+<span class="section-number">04</span>
+<h2>Conclusión</h2>
+<p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
+</section>
 
 </main>
 
