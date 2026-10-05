@@ -198,7 +198,6 @@ h3{color:var(--azul2);font-size:23px}
 .step .icon{font-size: 28px; margin-bottom: 4px;}
 .step strong{color: var(--amarillo); font-size: 14.5px; display: block; margin-bottom: 3px;}
 .step span{font-size: 12.5px; color: #d0dbe5; line-height: 1.35; display: block;}
-.arrow{display:none}
 
 #funcionamiento .card-grid {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -221,7 +220,7 @@ h3{color:var(--azul2);font-size:23px}
 #materiales {
   max-width: 100% !important;
   width: 100%;
-  min-height: 85vh; /* Amplía el espacio vertical de la sección para separar la conclusión */
+  min-height: 85vh; 
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
@@ -322,7 +321,22 @@ h3{color:var(--azul2);font-size:23px}
 .modal-content p { font-size: 17px; line-height: 1.6; margin: 0; }
 
 /* ======================================================== */
-/* SECCIÓN CONCLUSIÓN (Empujada hacia abajo con flexbox)    */
+/* LÍNEAS DE DIFUMINADO ENTRE SECCIONES                     */
+/* ======================================================== */
+.section-divider {
+  width: 100%;
+  max-width: 1100px;
+  height: 8px; /* Altura más chica */
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, #888888, transparent); /* Color más gris */
+  opacity: 0.95; /* 95% sólido / 5% transparente */
+  border: none;
+  z-index: 5;
+  position: relative;
+}
+
+/* ======================================================== */
+/* SECCIÓN CONCLUSIÓN (Empujada hacia abajo)                */
 /* ======================================================== */
 #materiales-conclusion-wrapper {
   display: flex;
@@ -333,14 +347,14 @@ h3{color:var(--azul2);font-size:23px}
   max-width: 100% !important;
   width: 100%;
   padding-top: 20px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
   color: #fff;
   border-radius: 0;
-  margin-top: auto; /* Empuja la conclusión al fondo absoluto de la sección de fondo oscuro */
+  margin-top: auto; 
 }
 #conclusion h2 { color: var(--amarillo); }
 #conclusion p.lead { color: #f0f4f8; max-width: 900px; }
@@ -445,6 +459,9 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 </div>
 </section>
 
+<!-- Línea de difuminado entre Introducción y Cómo funciona -->
+<hr class="section-divider">
+
 <section id="funcionamiento">
 <span class="section-number">02</span>
 <h2>¿Cómo funciona?</h2>
@@ -467,6 +484,9 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 </div>
 </section>
 
+<!-- Línea de difuminado entre Cómo funciona y Materiales -->
+<hr class="section-divider">
+
 <div id="materiales-conclusion-wrapper">
   <section id="materiales">
   <span class="section-number">03</span>
@@ -474,7 +494,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
   <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
   <div class="card-grid">
-  <div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀️</div><h3>Panel solar de 5 V / 200 mA</h3></div>
+  <div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀️️</div><h3>Panel solar de 5 V / 200 mA</h3></div>
   <div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
   <div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
   <div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
@@ -484,6 +504,9 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
   <div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
   </div>
   </section>
+
+  <!-- Línea de difuminado entre Materiales y Conclusión -->
+  <hr class="section-divider">
 
   <section id="conclusion">
   <span class="section-number">04</span>
