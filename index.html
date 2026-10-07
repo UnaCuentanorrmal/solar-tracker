@@ -299,6 +299,22 @@ h3{color:var(--azul2);font-size:23px}
   cursor: pointer;
   position: relative;
 }
+
+#materiales .material-icon {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.16));
+  transition: transform .28s ease, filter .28s ease;
+}
+
+#materiales .card:hover .material-icon {
+  transform: translateY(-4px) scale(1.06);
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.22));
+}
+
 #materiales .card h3 { 
   color: var(--azul); 
   margin: 10px 0 0 0; 
@@ -530,14 +546,14 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 <p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
 
 <div class="card-grid">
-<div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><div class="icon">☀</div><h3>Panel solar de 5 V / 200 mA</h3></div>
-<div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><div class="icon">🧠</div><h3>Arduino Nano</h3></div>
-<div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><div class="icon">👁</div><h3>LDR (x4 5528)</h3></div>
-<div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><div class="icon">⚙</div><h3>Servomotores de 180°</h3></div>
-<div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><div class="icon">🔴</div><h3>Resistencias de 10 kΩ</h3></div>
-<div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><div class="icon">🧩</div><h3>Protoboard</h3></div>
-<div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><div class="icon">🔗</div><h3>Cables Dupont</h3></div>
-<div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><div class="icon">🏗️</div><h3>Estructura 3D</h3></div>
+<div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><img src="panel.png" alt="Panel solar de 5 V / 200 mA" class="material-icon"><h3>Panel solar de 5 V / 200 mA</h3></div>
+<div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><img src="arduino.png" alt="Arduino Nano" class="material-icon"><h3>Arduino Nano</h3></div>
+<div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><img src="ldr.png" alt="LDR 5528" class="material-icon"><h3>LDR (x4 5528)</h3></div>
+<div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><img src="servo.png" alt="Servomotor de 180 grados" class="material-icon"><h3>Servomotores de 180°</h3></div>
+<div class="card" onclick="abrirModal('🔴', 'Resistencias de 10 kΩ', 'Se utilizan junto con los LDR para obtener señales eléctricas que Arduino puede medir.')"><img src="resistencia.png" alt="Resistencia de 10 kΩ" class="material-icon"><h3>Resistencias de 10 kΩ</h3></div>
+<div class="card" onclick="abrirModal('🧩', 'Protoboard', 'Permite montar y probar las conexiones del circuito sin realizar soldaduras.')"><img src="protoboard.png" alt="Protoboard" class="material-icon"><h3>Protoboard</h3></div>
+<div class="card" onclick="abrirModal('🔗', 'Cables Dupont', 'Permiten realizar las conexiones entre Arduino, sensores, servo y protoboard.')"><img src="cables.png" alt="Cables Dupont" class="material-icon"><h3>Cables Dupont</h3></div>
+<div class="card" onclick="abrirModal('🏗️', 'Estructura 3D', 'Piezas impresas y soporte que sostienen el panel y permiten su movimiento.')"><img src="estructura.png" alt="Estructura 3D" class="material-icon"><h3>Estructura 3D</h3></div>
 </div>
 </section>
 
