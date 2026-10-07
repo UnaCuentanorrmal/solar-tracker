@@ -259,6 +259,8 @@ h3{color:var(--azul2);font-size:23px}
 }
 #funcionamiento .card strong { color: var(--amarillo); font-size: 15px; display: block; margin-bottom: 6px; }
 #funcionamiento .card p { font-size: 13.5px; margin: 0; color: #d0dbe5; }
+#funcionamiento .paso-titulo { margin-top: 34px; margin-bottom: 10px; color: var(--celeste); }
+#funcionamiento .proceso-cards { margin-top: 14px; }
 
 /* ======================================================== */
 /* SECCIÓN MATERIALES (TARJETAS CLICKEABLES Y MODAL)        */
@@ -506,22 +508,19 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <section id="funcionamiento">
 <span class="section-number">02</span>
 <h2>¿Cómo funciona?</h2>
-<p class="lead">El sistema detecta diferencias de luz ambiental para orientar automáticamente el panel fotovoltaico.</p>
+<p class="lead">
+El Solar Tracker utiliza cuatro sensores LDR para medir la intensidad de la luz y detectar hacia qué dirección existe una mayor iluminación.<br>
+El Arduino Nano recibe y compara estas señales, determinando el ajuste necesario para orientar correctamente el panel solar.<br>
+Luego, los servomotores de 180° desplazan la estructura impresa en 3D de forma controlada hasta posicionarla hacia el punto de mayor intensidad lumínica.<br>
+Este proceso se repite continuamente, manteniendo un movimiento estable, una lectura eficiente de las entradas y un funcionamiento seguro del circuito.
+</p>
 
-<div class="flow">
-<div class="step"><div class="icon">☀️</div><strong>1. Detectar</strong><span>Los LDR captan la luz solar ambiental.</span></div>
-<div class="step"><div class="icon">🧠</div><strong>2. Comparar</strong><span>Arduino procesa y contrasta las lecturas.</span></div>
-<div class="step"><div class="icon">⚡</div><strong>3. Decidir</strong><span>Calcula la dirección de mayor brillo.</span></div>
-<div class="step"><div class="icon">⚙️</div><strong>4. Mover</strong><span>El servo ajusta el ángulo del panel.</span></div>
-<div class="step"><div class="icon">🔄</div><strong>5. Repetir</strong><span>Monitorea continuamente la posición.</span></div>
-</div>
-
-<h3>Esquema lógico del proceso</h3>
-<div class="card-grid">
-<div class="card"><strong>Sensores LDR</strong><p>Cuatro fotoresistencias miden la intensidad lumínica en distintos puntos.</p></div>
-<div class="card"><strong>Procesamiento</strong><p>Arduino Nano analiza los voltajes y determina desequilibrios de luz.</p></div>
-<div class="card"><strong>Accionamiento</strong><p>El servomotor corrige el ángulo con precisión milimétrica.</p></div>
-<div class="card"><strong>Optimización</strong><p>Garantiza la máxima captación de energía durante todo el día.</p></div>
+<h3 class="paso-titulo">Paso a paso</h3>
+<div class="card-grid proceso-cards">
+<div class="card"><strong>1. Sensores LDR</strong><p>Cuatro fotoresistencias reciben la luz ambiental y miden su intensidad desde distintos puntos.</p></div>
+<div class="card"><strong>2. Procesamiento</strong><p>El Arduino Nano compara las entradas analógicas y determina hacia dónde existe mayor iluminación.</p></div>
+<div class="card"><strong>3. Accionamiento</strong><p>Los servomotores de 180° mueven la estructura 3D para orientar el panel hacia el punto de mayor luz.</p></div>
+<div class="card"><strong>4. Optimización y estabilidad</strong><p>El sistema repite la lectura y el ajuste de forma continua, manteniendo un funcionamiento estable y seguro.</p></div>
 </div>
 </section>
 
