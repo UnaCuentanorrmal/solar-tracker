@@ -511,25 +511,78 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
   align-items:center;
   gap:10px;
   padding:13px 19px;
-  border:1px solid rgba(255,255,255,.32);
+  border:1px solid rgba(255,255,255,.34);
   border-radius:999px;
-  background:rgba(9,43,76,.88);
+  background:rgba(9,43,76,.90);
   color:#fff;
   font-size:14px;
   font-weight:800;
   letter-spacing:.02em;
   cursor:pointer;
-  box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 18px rgba(43,182,214,.16);
+  box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 18px rgba(43,182,214,.20);
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
-  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+  transition:background .22s ease,box-shadow .22s ease,border-color .22s ease;
+  animation:vista3d-flotar 4.6s ease-in-out infinite, vista3d-luz 3.4s ease-in-out infinite;
+  isolation:isolate;
 }
+
+#abrirVista3D::before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  z-index:-1;
+  border-radius:inherit;
+  background:rgba(43,182,214,.15);
+  filter:blur(9px);
+  opacity:.35;
+  pointer-events:none;
+  animation:vista3d-aura 3.4s ease-in-out infinite;
+}
+
 #abrirVista3D:hover{
-  transform:translateY(-3px);
-  background:rgba(17,107,140,.94);
-  box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 24px rgba(43,182,214,.22);
+  background:rgba(17,107,140,.96);
+  border-color:rgba(255,255,255,.52);
+  box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 28px rgba(43,182,214,.34);
 }
-#abrirVista3D .vista3d-icon{font-size:19px;line-height:1}
+
+#abrirVista3D .vista3d-icon{
+  display:inline-block;
+  font-size:19px;
+  line-height:1;
+  transform-origin:center;
+  animation:vista3d-rombo 3.2s ease-in-out infinite;
+}
+
+@keyframes vista3d-flotar{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-5px) scale(1.025)}
+}
+
+@keyframes vista3d-luz{
+  0%,100%{box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 14px rgba(43,182,214,.16)}
+  50%{box-shadow:0 15px 38px rgba(0,0,0,.36),0 0 26px rgba(43,182,214,.30)}
+}
+
+@keyframes vista3d-aura{
+  0%,100%{opacity:.24;transform:scale(.98)}
+  50%{opacity:.48;transform:scale(1.045)}
+}
+
+@keyframes vista3d-rombo{
+  0%,18%{transform:rotate(0deg) scale(1)}
+  28%{transform:rotate(90deg) scale(1.14)}
+  38%,58%{transform:rotate(90deg) scale(1)}
+  68%{transform:rotate(180deg) scale(1.14)}
+  78%,92%{transform:rotate(180deg) scale(1)}
+  100%{transform:rotate(360deg) scale(1)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #abrirVista3D,
+  #abrirVista3D::before,
+  #abrirVista3D .vista3d-icon{animation:none !important}
+}
 
 body.visor-3d-abierto{overflow:hidden !important}
 
