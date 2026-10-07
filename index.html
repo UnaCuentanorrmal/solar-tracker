@@ -259,7 +259,7 @@ h3{color:var(--azul2);font-size:23px}
 }
 #funcionamiento .card strong { color: var(--amarillo); font-size: 15px; display: block; margin-bottom: 6px; }
 #funcionamiento .card p { font-size: 13.5px; margin: 0; color: #d0dbe5; }
-#funcionamiento .paso-titulo { margin-top: 34px; margin-bottom: 10px; color: var(--celeste); }
+#funcionamiento .paso-titulo { margin-top: 34px; margin-bottom: 10px; color: var(--amarillo); }
 #funcionamiento .proceso-cards { margin-top: 14px; }
 
 /* ======================================================== */
@@ -509,10 +509,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 <span class="section-number">02</span>
 <h2>¿Cómo funciona?</h2>
 <p class="lead">
-El Solar Tracker utiliza cuatro sensores LDR para medir la intensidad de la luz y detectar hacia qué dirección existe una mayor iluminación.<br>
-El Arduino Nano recibe y compara estas señales, determinando el ajuste necesario para orientar correctamente el panel solar.<br>
-Luego, los servomotores de 180° desplazan la estructura impresa en 3D de forma controlada hasta posicionarla hacia el punto de mayor intensidad lumínica.<br>
-Este proceso se repite continuamente, manteniendo un movimiento estable, una lectura eficiente de las entradas y un funcionamiento seguro del circuito.
+El Solar Tracker es un sistema de control automático diseñado para mantener el panel fotovoltaico orientado hacia la zona con mayor intensidad de luz. Para obtener esa información utiliza cuatro sensores LDR, cuya respuesta eléctrica cambia según la iluminación que reciben; estas señales llegan a las entradas analógicas del Arduino Nano a través del circuito montado en protoboard y apoyado por resistencias de 10 kΩ. El Arduino analiza las diferencias entre las lecturas y genera las órdenes necesarias para controlar los servomotores de 180°, que modifican la posición de la estructura impresa en 3D. De esta manera, el prototipo puede corregir su orientación durante el funcionamiento, buscando mejorar la captación de radiación solar mediante un movimiento estable y un circuito eléctrico continuo y seguro.
 </p>
 
 <h3 class="paso-titulo">Paso a paso</h3>
