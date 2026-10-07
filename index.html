@@ -624,7 +624,7 @@ body.visor-3d-abierto{overflow:hidden !important}
 
 #visor3DModal .visor3d-stage{position:absolute;inset:0;overflow:hidden;background:#151922;color:#eef2f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 #visor3DModal #viewer3D{position:absolute;inset:0}
-#visor3DModal canvas{display:block;touch-action:none}
+#visor3DModal canvas{display:block;width:100%;height:100%;touch-action:none}
 
 #visor3DModal #status3D{
   position:absolute;left:50%;top:16px;transform:translateX(-50%);z-index:40;
@@ -1060,6 +1060,9 @@ function iniciarVisor3D(){
 
   function updateComponentUI(){
     if(!modelLoaded)return;
+    // Mantiene etiquetas y conectores sincronizados con la cámara, especialmente durante gestos táctiles.
+    camera.updateMatrixWorld(true);
+    if(modelRoot) modelRoot.updateMatrixWorld(true);
     const w=viewer.clientWidth,h=viewer.clientHeight;
     if(!w||!h)return;
     const mobile=w<=700;
@@ -1081,8 +1084,9 @@ function iniciarVisor3D(){
       const targetX=clamp(anchorX+off.x,halfW+margin,w-halfW-margin);
       const targetY=clamp(anchorY+off.y,24+margin,h-60-margin);
       if(item.x===null){item.x=targetX;item.y=targetY;}
-      item.x+=(targetX-item.x)*0.22;
-      item.y+=(targetY-item.y)*0.22;
+      const follow=mobile?0.48:0.22;
+      item.x+=(targetX-item.x)*follow;
+      item.y+=(targetY-item.y)*follow;
       item.wrap.style.left=item.x+'px';
       item.wrap.style.top=item.y+'px';
       item.line.setAttribute('x1',anchorX);
@@ -1137,7 +1141,7 @@ function iniciarVisor3D(){
   function resize(){
     const w=viewer.clientWidth,h=viewer.clientHeight;
     if(!w||!h)return;
-    renderer.setSize(w,h,false);
+    renderer.setSize(w,h,true);
     camera.aspect=w/h;
     camera.updateProjectionMatrix();
     connectors.setAttribute('viewBox',`0 0 ${w} ${h}`);
