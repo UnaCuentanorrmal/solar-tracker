@@ -287,36 +287,43 @@ h3{color:var(--azul2);font-size:23px}
 #materiales .lead { color: #f0f4f8; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
 #materiales .section-number { background: var(--amarillo); color: var(--azul); }
 
+#materiales .card-grid {
+  grid-template-columns: repeat(4, minmax(175px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
 #materiales .card {
-  background: rgba(9, 43, 76, 0.62);
-  border: 1px solid rgba(116, 202, 230, 0.28);
-  min-height: 150px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  min-height: 132px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 35px;
+  padding: 18px 12px 30px;
   cursor: pointer;
   position: relative;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+  border-radius: 18px;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255,255,255,0.20);
   transition: transform .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
 #materiales .card:hover {
-  background: rgba(12, 56, 94, 0.72);
-  border-color: rgba(116, 202, 230, 0.45);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24), 0 0 18px rgba(43, 182, 214, 0.08);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34), 0 0 18px rgba(255,255,255,0.08);
 }
 
 #materiales .material-icon {
-  width: 78px;
-  height: 78px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 10px;
-  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.16));
+  margin: 0 auto 6px;
+  filter: drop-shadow(0 5px 9px rgba(0,0,0,0.24));
   transition: transform .28s ease, filter .28s ease;
 }
 
@@ -327,17 +334,18 @@ h3{color:var(--azul2);font-size:23px}
 
 #materiales .card h3 { 
   color: #ffffff; 
-  margin: 10px 0 0 0; 
-  font-size: 18px; 
+  margin: 5px 0 0 0; 
+  font-size: 17px; 
+  line-height: 1.2;
   text-align: center;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  text-shadow: 0 2px 7px rgba(0,0,0,0.62);
 }
 #materiales .card::after {
   content: "Clic para leer más";
   position: absolute;
-  bottom: 12px;
-  font-size: 12.5px;
-  color: #c9d9e6;
+  bottom: 9px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.86);
   font-weight: bold;
   opacity: 0.9;
 }
@@ -416,18 +424,24 @@ h3{color:var(--azul2);font-size:23px}
 #conclusion {
   max-width: 100% !important;
   width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 58px;
+  padding-bottom: 70px;
   padding-left: max(24px, calc((100% - 1100px) / 2));
   padding-right: max(24px, calc((100% - 1100px) / 2));
   position: relative;
   background-color: #0d0d0d;
+  background-image:
+    linear-gradient(rgba(5, 10, 18, 0.58), rgba(5, 10, 18, 0.76)),
+    url("conclusion.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
   border-radius: 0;
   margin-top: -1px;
 }
-#conclusion h2 { color: var(--amarillo); }
-#conclusion p.lead { color: #f0f4f8; max-width: 900px; }
+#conclusion h2 { color: var(--amarillo); text-shadow: 0 2px 10px rgba(0,0,0,.7); }
+#conclusion p.lead { color: #f0f4f8; max-width: 930px; text-shadow: 0 2px 8px rgba(0,0,0,.72); }
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:0px}
@@ -475,6 +489,10 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  
  .flow { flex-direction: column; gap: 8px; margin: 20px 0;}
  .step { max-width: 100%; padding: 12px; }
+ #materiales .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+ #materiales .card { min-height: 125px; padding: 15px 8px 28px; }
+ #materiales .material-icon { width: 56px; height: 56px; }
+ #materiales .card h3 { font-size: 15px; }
 }
 </style>
 </head>
@@ -574,7 +592,7 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 <section id="conclusion">
 <span class="section-number">04</span>
 <h2>Conclusión</h2>
-<p class="lead">El proyecto Solar Tracker demuestra de manera práctica y escalable cómo la automatización puede optimizar la recolección de energía solar.</p>
+<p class="lead">El proyecto <strong>Solar Tracker</strong> demuestra de manera práctica cómo la automatización puede mejorar el aprovechamiento de la radiación solar mediante un sistema capaz de detectar variaciones de iluminación y corregir de forma autónoma la orientación de un panel fotovoltaico. La integración de sensores LDR, un Arduino Nano, resistencias y servomotores permite transformar las diferencias de luz en decisiones de control y movimientos mecánicos precisos, manteniendo el panel orientado hacia la zona de mayor intensidad lumínica.<br><br>Además de su aplicación energética, el prototipo permitió integrar conocimientos de electricidad, electrónica, programación y fabricación mecánica en una solución funcional a escala. El desarrollo evidencia la importancia de combinar sistemas de control automático con tecnologías renovables, y sirve como base para comprender cómo este tipo de mecanismos puede aumentar la eficiencia de captación solar y evolucionar hacia diseños de mayor tamaño, precisión y rendimiento.</p>
 </section>
 
 </main>
