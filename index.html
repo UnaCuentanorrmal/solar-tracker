@@ -288,8 +288,8 @@ h3{color:var(--azul2);font-size:23px}
 #materiales .section-number { background: var(--amarillo); color: var(--azul); }
 
 #materiales .card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(9, 43, 76, 0.62);
+  border: 1px solid rgba(116, 202, 230, 0.28);
   min-height: 150px;
   display: flex;
   flex-direction: column;
@@ -298,6 +298,16 @@ h3{color:var(--azul2);font-size:23px}
   padding-top: 35px;
   cursor: pointer;
   position: relative;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+#materiales .card:hover {
+  background: rgba(12, 56, 94, 0.72);
+  border-color: rgba(116, 202, 230, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24), 0 0 18px rgba(43, 182, 214, 0.08);
 }
 
 #materiales .material-icon {
@@ -316,22 +326,23 @@ h3{color:var(--azul2);font-size:23px}
 }
 
 #materiales .card h3 { 
-  color: var(--azul); 
+  color: #ffffff; 
   margin: 10px 0 0 0; 
   font-size: 18px; 
   text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 #materiales .card::after {
   content: "Clic para leer más";
   position: absolute;
   bottom: 12px;
   font-size: 12.5px;
-  color: #63778a;
+  color: #c9d9e6;
   font-weight: bold;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 #materiales .card:hover::after {
-  color: var(--celeste);
+  color: var(--amarillo);
 }
 
 /* Diseño del Modal (Tarjeta Grande) */
@@ -543,10 +554,10 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 <section id="materiales">
 <span class="section-number">03</span>
 <h2>Materiales</h2>
-<p class="lead">Para construir el prototipo se utilizan componentes electrónicos y elementos de montaje que permiten detectar la luz y controlar el movimiento del panel.</p>
+<p class="lead">Para la construcción del prototipo se emplean componentes electrónicos, elementos de interconexión y piezas mecánicas que trabajan de forma integrada. Los sensores LDR detectan las variaciones de intensidad lumínica, el Arduino Nano procesa las señales analógicas y los servomotores ejecutan el posicionamiento del panel, mientras que la protoboard, las resistencias, los cables Dupont y la estructura impresa en 3D permiten implementar un circuito estable y un mecanismo de orientación preciso.</p>
 
 <div class="card-grid">
-<div class="card" onclick="abrirModal('☀️', 'Panel solar de 5 V / 200 mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><img src="panel.png" alt="Panel solar de 5 V / 200 mA" class="material-icon"><h3>Panel solar de 5 V / 200 mA</h3></div>
+<div class="card" onclick="abrirModal('☀️', 'Panel solar 5V 200mA', 'Capta la radiación solar y la transforma en energía eléctrica.')"><img src="panel.png" alt="Panel solar 5V 200mA" class="material-icon"><h3>Panel solar 5V 200mA</h3></div>
 <div class="card" onclick="abrirModal('🧠', 'Arduino Nano', 'Controla el sistema, procesa las lecturas de los sensores y envía las órdenes al servo.')"><img src="arduino.png" alt="Arduino Nano" class="material-icon"><h3>Arduino Nano</h3></div>
 <div class="card" onclick="abrirModal('👁', 'LDR (x4 5528)', 'Sensores cuya respuesta eléctrica cambia dependiendo de la cantidad de luz que reciben.')"><img src="ldr.png" alt="LDR 5528" class="material-icon"><h3>LDR (x4 5528)</h3></div>
 <div class="card" onclick="abrirModal('⚙', 'Servomotores de 180°', 'Permiten modificar de forma controlada el ángulo del mecanismo.')"><img src="servo.png" alt="Servomotor de 180 grados" class="material-icon"><h3>Servomotores de 180°</h3></div>
