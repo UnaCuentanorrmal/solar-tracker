@@ -442,6 +442,9 @@ h3{color:var(--azul2);font-size:23px}
 }
 #conclusion h2 { color: var(--amarillo); text-shadow: 0 2px 10px rgba(0,0,0,.7); }
 #conclusion p.lead { color: #f0f4f8; max-width: 930px; text-shadow: 0 2px 8px rgba(0,0,0,.72); }
+.conclusion-motto{max-width:930px;margin:28px auto 0;text-align:center;color:#ffffff;}
+.conclusion-motto p{margin:8px 0;font-size:22px;line-height:1.45;font-style:italic;text-shadow:0 2px 8px rgba(0,0,0,.78);}
+@media(max-width:650px){.conclusion-motto p{font-size:17px;}}
 
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:0px}
@@ -685,7 +688,7 @@ El proyecto consiste en el diseño y construcción de un <strong>Solar Tracker</
 </p>
 
 <div class="problem">
-<h3>💡 Desarrollo y Valor Educativo</h3>
+<h3>Desarrollo y Valor Educativo</h3>
 <p>Durante la realización del proyecto se combinaron conocimientos de electricidad, electrónica, programación y fabricación mecánica, abarcando desde la investigación inicial y la impresión 3D de piezas hasta el montaje de componentes y pruebas de código. Un detalle clave corregido durante el proceso fue ajustar el movimiento de los servomotores de 360° a 180°, logrando que el sistema operara con normalidad. Su principal valor educativo radica en integrar control automático y energía renovable en un prototipo funcional a escala, permitiendo estudiar de forma práctica la relación directa entre la orientación de un panel, la radiación recibida y la generación de energía fotovoltaica.</p>
 </div>
 </section>
@@ -736,6 +739,10 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 <span class="section-number">04</span>
 <h2>Conclusión</h2>
 <p class="lead">El proyecto <strong>Solar Tracker</strong> demuestra de manera práctica cómo la automatización puede mejorar el aprovechamiento de la radiación solar mediante un sistema capaz de detectar variaciones de iluminación y corregir de forma autónoma la orientación de un panel fotovoltaico. La integración de sensores LDR, un Arduino Nano, resistencias y servomotores permite transformar las diferencias de luz en decisiones de control y movimientos mecánicos precisos, manteniendo el panel orientado hacia la zona de mayor intensidad lumínica.<br><br>Además de su aplicación energética, el prototipo permitió integrar conocimientos de electricidad, electrónica, programación y fabricación mecánica en una solución funcional a escala. El desarrollo evidencia la importancia de combinar sistemas de control automático con tecnologías renovables, y sirve como base para comprender cómo este tipo de mecanismos puede aumentar la eficiencia de captación solar y evolucionar hacia diseños de mayor tamaño, precisión y rendimiento.</p>
+<div class="conclusion-motto">
+  <p>"Buenos cristianos y honestos ciudadanos"</p>
+  <p>"Lo que te propongas lo puedes lograr..."</p>
+</div>
 </section>
 
 </main>
@@ -907,11 +914,11 @@ function iniciarVisor3D(){
 
   const COMPONENTES=[
     {numero:1,corto:'Servo',nombre:'Servomotores SG90',nodos:['Sketchfab_model','Sketchfab_model002'],offsetDesktop:{x:-120,y:18},offsetMobile:{x:-82,y:10},que:'Actuadores que pueden girar hasta una posición angular controlada.',funcion:'Reciben órdenes del Arduino y mueven la estructura para orientar el panel hacia la zona con mayor luz.'},
-    {numero:2,corto:'Arduino',nombre:'Arduino Nano',nodos:['Scene_1'],offsetDesktop:{x:105,y:-18},offsetMobile:{x:72,y:-12},que:'Microcontrolador que ejecuta el programa del sistema.',funcion:'Lee los sensores LDR, compara la intensidad de luz y decide cuánto deben girar los servomotores.'},
+    {numero:2,corto:'Arduino',nombre:'Arduino Nano',nodos:['Sketchfab_model012'],offsetDesktop:{x:105,y:-18},offsetMobile:{x:72,y:-12},que:'Microcontrolador que ejecuta el programa del sistema.',funcion:'Lee los sensores LDR, compara la intensidad de luz y decide cuánto deben girar los servomotores.'},
     {numero:3,corto:'Protoboard',nombre:'Protoboard',nodos:['Sketchfab_model001'],offsetDesktop:{x:125,y:45},offsetMobile:{x:78,y:34},que:'Placa de pruebas para conectar componentes sin soldar.',funcion:'Interconecta Arduino, sensores, resistencias y alimentación durante el prototipado del solar tracker.'},
     {numero:4,corto:'Resistor',nombre:'Resistencias 10 kΩ',nodos:['Sketchfab_model003','Sketchfab_model009','Sketchfab_model010','Sketchfab_model011'],offsetDesktop:{x:-125,y:55},offsetMobile:{x:-82,y:42},que:'Componentes eléctricos que controlan la relación entre corriente y voltaje.',funcion:'Junto con los LDR forman divisores de tensión para convertir los cambios de luz en señales que el Arduino puede medir.'},
     {numero:5,corto:'LDR',nombre:'Sensores LDR',nodos:['Sketchfab_model005','Sketchfab_model006','Sketchfab_model007','Sketchfab_model008'],offsetDesktop:{x:105,y:-45},offsetMobile:{x:72,y:-36},que:'Fotoresistencias cuya resistencia varía según la cantidad de luz recibida.',funcion:'Actúan como los ojos del tracker: sus diferencias de lectura indican hacia qué dirección debe moverse el panel.'},
-    {numero:6,corto:'Panel',nombre:'Panel solar',nodos:['Sketchfab_model012'],offsetDesktop:{x:125,y:65},offsetMobile:{x:78,y:48},que:'Conjunto de celdas fotovoltaicas que transforma la radiación solar en electricidad.',funcion:'Es el elemento que el sistema orienta para mantener una incidencia de luz más favorable y mejorar la captación de energía.'}
+    {numero:6,corto:'Panel',nombre:'Panel solar',nodos:['Scene_1'],offsetDesktop:{x:125,y:65},offsetMobile:{x:78,y:48},que:'Conjunto de celdas fotovoltaicas que transforma la radiación solar en electricidad.',funcion:'Es el elemento que el sistema orienta para mantener una incidencia de luz más favorable y mejorar la captación de energía.'}
   ];
 
   const viewer=document.getElementById('viewer3D');
