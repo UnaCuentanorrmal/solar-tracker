@@ -443,17 +443,6 @@ h3{color:var(--azul2);font-size:23px}
 #conclusion h2 { color: var(--amarillo); text-shadow: 0 2px 10px rgba(0,0,0,.7); }
 #conclusion p.lead { color: #f0f4f8; max-width: 930px; text-shadow: 0 2px 8px rgba(0,0,0,.72); }
 
-.conclusion-quote{
-  margin: 56px auto 0;
-  text-align: center;
-  color: var(--amarillo);
-  font-size: clamp(19px, 2vw, 26px);
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: .3px;
-  text-shadow: 0 2px 10px rgba(0,0,0,.85);
-}
-
 .problem{border-left:6px solid var(--amarillo);background:#fff;padding:25px;border-radius:0 15px 15px 0;box-shadow:0 5px 20px #0000000b;margin-top:35px;}
 footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;margin-top:0px}
 
@@ -505,7 +494,150 @@ footer{text-align:center;background:var(--azul);color:#fff;padding:45px 20px;mar
  #materiales .material-icon { width: 56px; height: 56px; }
  #materiales .card h3 { font-size: 15px; }
 }
+
+
+/* ======================================================== */
+/* VISTA 3D INTEGRADA                                       */
+/* ======================================================== */
+#abrirVista3D{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:8500;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 19px;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:999px;
+  background:rgba(9,43,76,.88);
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+  box-shadow:0 12px 34px rgba(0,0,0,.34),0 0 18px rgba(43,182,214,.16);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+#abrirVista3D:hover{
+  transform:translateY(-3px);
+  background:rgba(17,107,140,.94);
+  box-shadow:0 16px 38px rgba(0,0,0,.38),0 0 24px rgba(43,182,214,.22);
+}
+#abrirVista3D .vista3d-icon{font-size:19px;line-height:1}
+
+body.visor-3d-abierto{overflow:hidden !important}
+
+#visor3DModal{
+  position:fixed;
+  inset:0;
+  z-index:20000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3vh 2vw;
+  background:rgba(0,0,0,.76);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .24s ease,visibility .24s ease;
+}
+#visor3DModal.show{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+#visor3DModal .visor3d-shell{
+  position:relative;
+  width:96vw;
+  height:92vh;
+  overflow:hidden;
+  border-radius:22px;
+  background:#151922;
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 28px 90px rgba(0,0,0,.62);
+  transform:scale(.975) translateY(10px);
+  transition:transform .24s ease;
+}
+#visor3DModal.show .visor3d-shell{transform:scale(1) translateY(0)}
+
+#visor3DModal .visor3d-stage{position:absolute;inset:0;overflow:hidden;background:#151922;color:#eef2f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+#visor3DModal #viewer3D{position:absolute;inset:0}
+#visor3DModal canvas{display:block;touch-action:none}
+
+#visor3DModal #status3D{
+  position:absolute;left:50%;top:16px;transform:translateX(-50%);z-index:40;
+  max-width:58vw;padding:9px 14px;border-radius:11px;background:#0f172ad9;
+  border:1px solid #ffffff20;font-size:12px;text-align:center;backdrop-filter:blur(10px)
+}
+#visor3DModal #reset3D{
+  position:absolute;right:16px;bottom:16px;z-index:40;padding:11px 14px;border-radius:11px;
+  border:1px solid #ffffff2b;background:#0f172ad9;color:#fff;cursor:pointer;backdrop-filter:blur(10px)
+}
+#visor3DModal #help3D{
+  position:absolute;left:16px;bottom:16px;z-index:40;padding:10px 13px;border-radius:11px;
+  border:1px solid #ffffff20;background:#0f172acb;font-size:12px;line-height:1.45;
+  pointer-events:none;backdrop-filter:blur(10px)
+}
+#visor3DModal .visor3d-title{
+  position:absolute;left:16px;top:16px;z-index:45;padding:9px 13px;border-radius:11px;
+  background:#0f172ad9;border:1px solid #ffffff20;color:#fff;font-size:12px;font-weight:800;
+  letter-spacing:.02em;backdrop-filter:blur(10px)
+}
+#visor3DModal #cerrarVista3D{
+  position:absolute;right:16px;top:16px;z-index:60;width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.26);background:rgba(15,23,42,.88);color:#fff;
+  font-size:27px;line-height:1;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(10px);
+  transition:background .18s ease,transform .18s ease
+}
+#visor3DModal #cerrarVista3D:hover{background:#243148;transform:scale(1.05)}
+
+#visor3DModal #connectors3D{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:18;overflow:visible}
+#visor3DModal .connector3D{stroke:rgba(255,255,255,.65);stroke-width:1.7;vector-effect:non-scaling-stroke}
+#visor3DModal .connector-dot3D{fill:#fff;stroke:rgba(15,23,42,.95);stroke-width:3.5;vector-effect:non-scaling-stroke}
+#visor3DModal #labels3D{position:absolute;inset:0;pointer-events:none;z-index:22}
+#visor3DModal .component-ui3D{position:absolute;left:0;top:0;transform:translate(-50%,-50%);pointer-events:auto;will-change:left,top}
+#visor3DModal .control-row3D{display:flex;align-items:center;gap:6px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.36))}
+#visor3DModal .number-badge3D,#visor3DModal .toggle-info3D{height:30px;border:1px solid rgba(255,255,255,.32);background:rgba(15,23,42,.94);color:#fff;backdrop-filter:blur(10px)}
+#visor3DModal .number-badge3D{min-width:30px;padding:0 9px;border-radius:999px;display:grid;place-items:center;font-weight:900;font-size:12px;pointer-events:none}
+#visor3DModal .toggle-info3D{border-radius:999px;padding:0 12px;cursor:pointer;font-weight:800;font-size:11px;letter-spacing:.01em;transition:background .15s ease,transform .15s ease}
+#visor3DModal .toggle-info3D:hover{background:#243148;transform:translateY(-1px)}
+#visor3DModal .toggle-info3D[aria-expanded="true"]{background:#2d3d58}
+#visor3DModal .info-card3D{position:absolute;left:50%;top:38px;transform:translateX(-50%);width:230px;padding:11px 12px 10px;border-radius:14px;background:rgba(15,23,42,.96);border:1px solid rgba(255,255,255,.2);box-shadow:0 16px 40px rgba(0,0,0,.42);backdrop-filter:blur(14px);color:#eef2f8;font-size:11px;line-height:1.38;transition:opacity .14s ease,transform .14s ease,visibility .14s ease}
+#visor3DModal .info-card3D.hidden{opacity:0;visibility:hidden;transform:translate(-50%,-5px);pointer-events:none}
+#visor3DModal .info-card3D h3{margin:0 0 7px;font-size:13px;line-height:1.2;color:#fff}
+#visor3DModal .info-card3D p{margin:4px 0;color:#dce6f3}
+#visor3DModal .info-card3D strong{color:#fff}
+#visor3DModal .component-ui3D.offscreen{display:none}
+
+@media(max-width:700px){
+  #abrirVista3D{right:14px;bottom:14px;padding:11px 15px;font-size:12px}
+  #visor3DModal{padding:0}
+  #visor3DModal .visor3d-shell{width:100vw;height:100dvh;border-radius:0;border:none}
+  #visor3DModal .number-badge3D,#visor3DModal .toggle-info3D{height:28px}
+  #visor3DModal .number-badge3D{min-width:28px;padding:0 8px;font-size:11px}
+  #visor3DModal .toggle-info3D{padding:0 10px;font-size:10px}
+  #visor3DModal .info-card3D{width:min(190px,62vw);top:35px;padding:9px 10px;font-size:9.8px;line-height:1.3}
+  #visor3DModal .info-card3D h3{font-size:11px;margin-bottom:5px}
+  #visor3DModal #help3D{left:8px;bottom:8px;right:102px;font-size:10px;padding:8px 9px}
+  #visor3DModal #help3D br{display:none}
+  #visor3DModal #reset3D{right:8px;bottom:8px;padding:9px 10px;font-size:11px}
+  #visor3DModal #status3D{top:8px;max-width:58vw;font-size:10px;padding:7px 9px}
+  #visor3DModal .visor3d-title{display:none}
+  #visor3DModal #cerrarVista3D{right:8px;top:8px;width:38px;height:38px;font-size:24px}
+}
+
 </style>
+
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}
+</script>
+
 </head>
 <body>
 
@@ -604,7 +736,6 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 <span class="section-number">04</span>
 <h2>Conclusión</h2>
 <p class="lead">El proyecto <strong>Solar Tracker</strong> demuestra de manera práctica cómo la automatización puede mejorar el aprovechamiento de la radiación solar mediante un sistema capaz de detectar variaciones de iluminación y corregir de forma autónoma la orientación de un panel fotovoltaico. La integración de sensores LDR, un Arduino Nano, resistencias y servomotores permite transformar las diferencias de luz en decisiones de control y movimientos mecánicos precisos, manteniendo el panel orientado hacia la zona de mayor intensidad lumínica.<br><br>Además de su aplicación energética, el prototipo permitió integrar conocimientos de electricidad, electrónica, programación y fabricación mecánica en una solución funcional a escala. El desarrollo evidencia la importancia de combinar sistemas de control automático con tecnologías renovables, y sirve como base para comprender cómo este tipo de mecanismos puede aumentar la eficiencia de captación solar y evolucionar hacia diseños de mayor tamaño, precisión y rendimiento.</p>
-<p class="conclusion-quote">“Buenos cristianos y honestos ciudadanos”</p>
 </section>
 
 </main>
@@ -614,6 +745,30 @@ El Solar Tracker es un sistema de control automático diseñado para mantener el
 Colegio Técnico Industrial Don Bosco Calama<br>
 Octubre 2026
 </footer>
+
+
+
+<!-- Botón flotante para abrir la experiencia 3D integrada -->
+<button id="abrirVista3D" type="button" aria-haspopup="dialog" aria-controls="visor3DModal">
+  <span class="vista3d-icon" aria-hidden="true">◈</span>
+  <span>Vista 3D</span>
+</button>
+
+<!-- Visor 3D integrado: no redirige a otra página -->
+<div id="visor3DModal" role="dialog" aria-modal="true" aria-label="Vista 3D interactiva del Solar Tracker">
+  <div class="visor3d-shell">
+    <div class="visor3d-stage">
+      <div id="viewer3D" aria-label="Visor interactivo del solar tracker"></div>
+      <svg id="connectors3D" aria-hidden="true"></svg>
+      <div id="labels3D" aria-label="Controles de información de componentes"></div>
+      <div class="visor3d-title">Solar Tracker · Vista 3D</div>
+      <div id="status3D" role="status">Cargando visor…</div>
+      <div id="help3D">Izquierdo: rotar · Derecho: mover · Rueda: zoom<br>Presiona el nombre corto junto al número para mostrar u ocultar la tarjeta</div>
+      <button id="reset3D" type="button">Restablecer vista</button>
+      <button id="cerrarVista3D" type="button" aria-label="Cerrar vista 3D">&times;</button>
+    </div>
+  </div>
+</div>
 
 <!-- Contenedor del Modal (Tarjeta emergente) -->
 <div id="modalMaterial" class="modal-overlay">
@@ -706,5 +861,282 @@ window.onclick = function(event) {
   }
 }
 </script>
+
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+
+const modal3D = document.getElementById('visor3DModal');
+const abrir3D = document.getElementById('abrirVista3D');
+const cerrar3D = document.getElementById('cerrarVista3D');
+let visor3D = null;
+
+function abrirVista3D(){
+  modal3D.classList.add('show');
+  document.body.classList.add('visor-3d-abierto');
+  abrir3D.setAttribute('aria-expanded','true');
+  if(!visor3D) visor3D = iniciarVisor3D();
+  requestAnimationFrame(()=>visor3D?.resize());
+}
+
+function cerrarVista3D(){
+  modal3D.classList.remove('show');
+  document.body.classList.remove('visor-3d-abierto');
+  abrir3D.setAttribute('aria-expanded','false');
+}
+
+abrir3D.addEventListener('click', abrirVista3D);
+cerrar3D.addEventListener('click', cerrarVista3D);
+modal3D.addEventListener('click', e=>{ if(e.target===modal3D) cerrarVista3D(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal3D.classList.contains('show')) cerrarVista3D(); });
+
+function iniciarVisor3D(){
+  const CONFIG={
+    modelo:'./panel-v1.glb',
+    hdri:'./fondo_3d.hdr',
+    mostrarHDRIComoFondo:true,
+    exposicion:1,
+    giroHDRI:0,
+    colorFondo:'#151922'
+  };
+
+  const COMPONENTES=[
+    {numero:1,corto:'Servo',nombre:'Servomotores SG90',nodos:['Sketchfab_model','Sketchfab_model002'],offsetDesktop:{x:-120,y:18},offsetMobile:{x:-82,y:10},que:'Actuadores que pueden girar hasta una posición angular controlada.',funcion:'Reciben órdenes del Arduino y mueven la estructura para orientar el panel hacia la zona con mayor luz.'},
+    {numero:2,corto:'Arduino',nombre:'Arduino Nano',nodos:['Scene_1'],offsetDesktop:{x:105,y:-18},offsetMobile:{x:72,y:-12},que:'Microcontrolador que ejecuta el programa del sistema.',funcion:'Lee los sensores LDR, compara la intensidad de luz y decide cuánto deben girar los servomotores.'},
+    {numero:3,corto:'Protoboard',nombre:'Protoboard',nodos:['Sketchfab_model001'],offsetDesktop:{x:125,y:45},offsetMobile:{x:78,y:34},que:'Placa de pruebas para conectar componentes sin soldar.',funcion:'Interconecta Arduino, sensores, resistencias y alimentación durante el prototipado del solar tracker.'},
+    {numero:4,corto:'Resistor',nombre:'Resistencias 10 kΩ',nodos:['Sketchfab_model003','Sketchfab_model009','Sketchfab_model010','Sketchfab_model011'],offsetDesktop:{x:-125,y:55},offsetMobile:{x:-82,y:42},que:'Componentes eléctricos que controlan la relación entre corriente y voltaje.',funcion:'Junto con los LDR forman divisores de tensión para convertir los cambios de luz en señales que el Arduino puede medir.'},
+    {numero:5,corto:'LDR',nombre:'Sensores LDR',nodos:['Sketchfab_model005','Sketchfab_model006','Sketchfab_model007','Sketchfab_model008'],offsetDesktop:{x:105,y:-45},offsetMobile:{x:72,y:-36},que:'Fotoresistencias cuya resistencia varía según la cantidad de luz recibida.',funcion:'Actúan como los ojos del tracker: sus diferencias de lectura indican hacia qué dirección debe moverse el panel.'},
+    {numero:6,corto:'Panel',nombre:'Panel solar',nodos:['Sketchfab_model012'],offsetDesktop:{x:125,y:65},offsetMobile:{x:78,y:48},que:'Conjunto de celdas fotovoltaicas que transforma la radiación solar en electricidad.',funcion:'Es el elemento que el sistema orienta para mantener una incidencia de luz más favorable y mejorar la captación de energía.'}
+  ];
+
+  const viewer=document.getElementById('viewer3D');
+  const status=document.getElementById('status3D');
+  const labelsLayer=document.getElementById('labels3D');
+  const connectors=document.getElementById('connectors3D');
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(CONFIG.colorFondo);
+  const camera=new THREE.PerspectiveCamera(45,1,.01,1000);
+  const renderer=new THREE.WebGLRenderer({antialias:true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=CONFIG.exposicion;
+  viewer.appendChild(renderer.domElement);
+
+  const controls=new OrbitControls(camera,renderer.domElement);
+  controls.enableDamping=true;
+  controls.enablePan=true;
+  controls.mouseButtons.LEFT=THREE.MOUSE.ROTATE;
+  controls.mouseButtons.MIDDLE=THREE.MOUSE.DOLLY;
+  controls.mouseButtons.RIGHT=THREE.MOUSE.PAN;
+  renderer.domElement.addEventListener('contextmenu',e=>e.preventDefault());
+
+  const initialPosition=new THREE.Vector3(4,3,5);
+  const initialTarget=new THREE.Vector3();
+  camera.position.copy(initialPosition);
+
+  const fallbackLights=new THREE.Group();
+  fallbackLights.add(new THREE.HemisphereLight(0xe0efff,0x555566,2));
+  const sun=new THREE.DirectionalLight(0xffffff,3);
+  sun.position.set(4,6,5);
+  fallbackLights.add(sun);
+  scene.add(fallbackLights);
+
+  let modelRoot=null,modelLoaded=false,envLoaded=false;
+  const warnings=[];
+  const ui=[];
+
+  function makeUI(component){
+    const wrap=document.createElement('div');
+    wrap.className='component-ui3D offscreen';
+    wrap.innerHTML=`
+      <div class="control-row3D">
+        <div class="number-badge3D">${component.numero}</div>
+        <button class="toggle-info3D" type="button" aria-expanded="false">${component.corto}</button>
+      </div>
+      <article class="info-card3D hidden">
+        <h3>${component.nombre}</h3>
+        <p><strong>Qué es:</strong> ${component.que}</p>
+        <p><strong>En el tracker:</strong> ${component.funcion}</p>
+      </article>`;
+    labelsLayer.appendChild(wrap);
+
+    const button=wrap.querySelector('.toggle-info3D');
+    const card=wrap.querySelector('.info-card3D');
+    button.addEventListener('click',e=>{
+      e.stopPropagation();
+      const open=button.getAttribute('aria-expanded')==='true';
+      button.setAttribute('aria-expanded',String(!open));
+      button.textContent=component.corto;
+      card.classList.toggle('hidden',open);
+    });
+
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('class','connector3D');
+    const dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    dot.setAttribute('class','connector-dot3D');
+    dot.setAttribute('r','4');
+    connectors.append(line,dot);
+    ui.push({component,wrap,button,card,line,dot,objects:[],anchorWorld:null,x:null,y:null});
+  }
+  COMPONENTES.forEach(makeUI);
+
+  function resolveNodesAndAnchors(){
+    ui.forEach(item=>{
+      item.objects=item.component.nodos.map(n=>modelRoot.getObjectByName(n)).filter(Boolean);
+      const box=new THREE.Box3().makeEmpty();
+      item.objects.forEach(obj=>{obj.updateWorldMatrix(true,true);box.union(new THREE.Box3().setFromObject(obj));});
+      item.anchorWorld=box.isEmpty()?null:box.getCenter(new THREE.Vector3());
+      if(item.objects.length!==item.component.nodos.length)console.warn('Faltan nodos de',item.component.nombre);
+    });
+  }
+
+  function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+
+  function updateComponentUI(){
+    if(!modelLoaded)return;
+    const w=viewer.clientWidth,h=viewer.clientHeight;
+    if(!w||!h)return;
+    const mobile=w<=700;
+    const margin=mobile?12:16;
+
+    for(const item of ui){
+      if(!item.anchorWorld){hideItem(item);continue;}
+      const v=item.anchorWorld.clone().project(camera);
+      const visible=v.z>-1&&v.z<1&&v.x>-1.15&&v.x<1.15&&v.y>-1.15&&v.y<1.15;
+      if(!visible){hideItem(item);continue;}
+
+      item.wrap.classList.remove('offscreen');
+      item.line.style.display='';
+      item.dot.style.display='';
+      const anchorX=(v.x+1)*.5*w;
+      const anchorY=(1-v.y)*.5*h;
+      const off=mobile?item.component.offsetMobile:item.component.offsetDesktop;
+      const halfW=(item.wrap.offsetWidth||92)/2;
+      const targetX=clamp(anchorX+off.x,halfW+margin,w-halfW-margin);
+      const targetY=clamp(anchorY+off.y,24+margin,h-60-margin);
+      if(item.x===null){item.x=targetX;item.y=targetY;}
+      item.x+=(targetX-item.x)*0.22;
+      item.y+=(targetY-item.y)*0.22;
+      item.wrap.style.left=item.x+'px';
+      item.wrap.style.top=item.y+'px';
+      item.line.setAttribute('x1',anchorX);
+      item.line.setAttribute('y1',anchorY);
+      item.line.setAttribute('x2',item.x);
+      item.line.setAttribute('y2',item.y);
+      item.dot.setAttribute('cx',anchorX);
+      item.dot.setAttribute('cy',anchorY);
+    }
+  }
+
+  function hideItem(item){
+    item.wrap.classList.add('offscreen');
+    item.line.style.display='none';
+    item.dot.style.display='none';
+    item.x=item.y=null;
+  }
+
+  function updateStatus(){
+    if(!modelLoaded){status.hidden=false;status.textContent=warnings.some(w=>w.startsWith('Modelo'))?warnings.join(' · '):'Cargando modelo…';return;}
+    if(CONFIG.hdri&&!envLoaded&&!warnings.some(w=>w.startsWith('HDRI'))){status.hidden=false;status.textContent='Modelo listo · cargando HDRI…';return;}
+    status.textContent=warnings.join(' · ');
+    status.hidden=warnings.length===0;
+  }
+
+  function frameModel(model){
+    model.updateMatrixWorld(true);
+    const box=new THREE.Box3().setFromObject(model);
+    if(box.isEmpty())throw new Error('El GLB no contiene geometría visible.');
+    const center=box.getCenter(new THREE.Vector3());
+    const radius=Math.max(box.getSize(new THREE.Vector3()).length()/2,.001);
+    const vfov=THREE.MathUtils.degToRad(camera.fov);
+    const hfov=2*Math.atan(Math.tan(vfov/2)*camera.aspect);
+    const distance=radius/Math.sin(Math.min(vfov,hfov)/2)*1.15;
+    initialTarget.copy(center);
+    initialPosition.copy(center).add(new THREE.Vector3(1,.6,1).normalize().multiplyScalar(distance));
+    camera.near=Math.max(radius/1000,.000001);
+    camera.far=Math.max(radius*100,distance*10);
+    camera.updateProjectionMatrix();
+    controls.minDistance=radius*.15;
+    controls.maxDistance=distance*6;
+    resetView();
+  }
+
+  function resetView(){
+    camera.position.copy(initialPosition);
+    controls.target.copy(initialTarget);
+    controls.update();
+  }
+  document.getElementById('reset3D').onclick=resetView;
+
+  function resize(){
+    const w=viewer.clientWidth,h=viewer.clientHeight;
+    if(!w||!h)return;
+    renderer.setSize(w,h,false);
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+    connectors.setAttribute('viewBox',`0 0 ${w} ${h}`);
+  }
+
+  new ResizeObserver(resize).observe(viewer);
+  resize();
+
+  async function loadModel(){
+    try{
+      const loader=new GLTFLoader();
+      loader.setMeshoptDecoder(MeshoptDecoder);
+      const gltf=await loader.loadAsync(CONFIG.modelo);
+      modelRoot=gltf.scene;
+      scene.add(modelRoot);
+      resize();
+      frameModel(modelRoot);
+      resolveNodesAndAnchors();
+      modelLoaded=true;
+    }catch(error){
+      warnings.push('Modelo: no se pudo cargar. Revisa panel-v1.glb y su ruta.');
+      console.error(error);
+    }
+    updateStatus();
+  }
+
+  async function loadEnvironment(){
+    if(!CONFIG.hdri){updateStatus();return;}
+    try{
+      const path=new URL(CONFIG.hdri,document.baseURI).pathname.toLowerCase();
+      const loader=path.endsWith('.exr')?new EXRLoader():new RGBELoader();
+      const texture=await loader.loadAsync(CONFIG.hdri);
+      texture.mapping=THREE.EquirectangularReflectionMapping;
+      scene.environment=texture;
+      if(CONFIG.mostrarHDRIComoFondo)scene.background=texture;
+      const angle=THREE.MathUtils.degToRad(CONFIG.giroHDRI);
+      scene.environmentRotation.y=angle;
+      scene.backgroundRotation.y=angle;
+      fallbackLights.visible=false;
+      envLoaded=true;
+    }catch(error){
+      warnings.push('HDRI: no se pudo cargar. Se usa iluminación de respaldo.');
+      console.error(error);
+    }
+    updateStatus();
+  }
+
+  loadModel();
+  loadEnvironment();
+  renderer.setAnimationLoop(()=>{
+    if(!modal3D.classList.contains('show')) return;
+    controls.update();
+    updateComponentUI();
+    renderer.render(scene,camera);
+  });
+
+  return {resize,resetView};
+}
+</script>
+
 </body>
 </html>
